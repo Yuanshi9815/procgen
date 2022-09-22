@@ -1,6 +1,7 @@
 
 #include "game.h"
 #include "vecoptions.h"
+#include "context/bigfish-context-option.h"
 
 // this should be updated whenever the state format or environments may have changed
 const int SERIALIZE_VERSION = 0;
@@ -34,9 +35,16 @@ Game::Game(std::string name) : game_name(name) {
     step_data.reward = 0;
     step_data.done = true;
     step_data.level_complete = false;
+
+    if(name=="bigfish"){
+        bigfish_context_option = new BigfishContextOption();
+    }
 }
 
 Game::~Game() {
+    if(bigfish_context_option){
+        delete bigfish_context_option;
+    }
 }
 
 void Game::parse_options(std::string name, VecOptions opts) {
@@ -70,6 +78,11 @@ void Game::parse_options(std::string name, VecOptions opts) {
     opts.consume_int("physics_mode", &options.physics_mode);
     opts.consume_int("debug_mode", &options.debug_mode);
     opts.consume_int("game_type", &game_type);
+
+    if (name == "bigfish") {
+        bigfish_context_option->parse_options(&opts);
+    }
+    
 
     opts.ensure_empty();
 }

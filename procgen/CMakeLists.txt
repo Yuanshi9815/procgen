@@ -45,6 +45,7 @@ add_library(env
   src/basic-abstract-game.cpp
   src/cpp-utils.cpp
   src/entity.cpp
+  src/context/bigfish-context-option.cpp
   src/game.cpp
   src/game-registry.cpp
   src/games/dodgeball.cpp

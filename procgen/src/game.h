@@ -17,6 +17,7 @@ Base class used for all games, all games must inherit from this
 #include "object-ids.h"
 #include "game-registry.h"
 #include "buffer.h"
+#include "context/bigfish-context-option.h"
 
 // We want all games to have same observation space. So all these
 // constants here related to observation space are constants forever.
@@ -119,6 +120,8 @@ class Game {
     virtual void game_draw(QPainter &p, const QRect &rect) = 0;
     virtual void serialize(WriteBuffer *b);
     virtual void deserialize(ReadBuffer *b);
+
+    BigfishContextOption *bigfish_context_option = nullptr;
 
   private:
     int reset_count = 0;

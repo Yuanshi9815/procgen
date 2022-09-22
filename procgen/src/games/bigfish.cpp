@@ -1,5 +1,6 @@
 #include "../basic-abstract-game.h"
 #include "../assetgen.h"
+#include "../context/bigfish-context-option.h"
 #include <set>
 #include <queue>
 
@@ -64,7 +65,7 @@ class BigFish : public BasicAbstractGame {
         options.center_agent = false;
         fish_eaten = 0;
 
-        float start_r = .5;
+        float start_r = bigfish_context_option->start_r;
 
         if (options.distribution_mode == EasyMode) {
             start_r = 1;
