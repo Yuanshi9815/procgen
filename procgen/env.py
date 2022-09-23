@@ -121,6 +121,15 @@ class BaseProcgenEnv(CEnv):
                 # these will only be used the first time an environment is created in a process
                 "resource_root": resource_root,
                 "start_r": 2.,
+                "fish_interval": 1,
+                "completion_bonus": 10,
+                "positive_reward": 1,
+                "fish_min_r": 0.25,
+                "fish_max_r": 2.,
+                "fish_quota": 100,
+                "from_left_prob": 0.5,
+                "min_speed": 0.15,
+                "max_speed": .5,
             }
         )
 
