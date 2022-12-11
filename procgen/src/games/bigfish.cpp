@@ -60,9 +60,9 @@ class BigFish : public BasicAbstractGame {
 
         float start_r = bigfish_context_option->start_r;
 
-        if (options.distribution_mode == EasyMode) {
-            start_r = 1;
-        }
+        // if (options.distribution_mode == EasyMode) {
+        //     start_r = 1;
+        // }
 
         r_inc = (bigfish_context_option->fish_max_r - start_r) / bigfish_context_option->fish_quota;
 

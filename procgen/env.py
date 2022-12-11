@@ -245,8 +245,9 @@ class ProcgenGym3Env(BaseProcgenEnv):
             kwargs["start_level"] = EXPLORATION_LEVEL_SEEDS[env_name]
         else:
             distribution_mode = DISTRIBUTION_MODE_DICT[distribution_mode]
-
-        options = {
+        if "options" not in kwargs:
+            kwargs["options"] = {}
+        kwargs["options"].update({
                 "center_agent": bool(center_agent),
                 "use_generated_assets": bool(use_generated_assets),
                 "use_monochrome_assets": bool(use_monochrome_assets),
@@ -254,8 +255,9 @@ class ProcgenGym3Env(BaseProcgenEnv):
                 "use_backgrounds": bool(use_backgrounds),
                 "paint_vel_info": bool(paint_vel_info),
                 "distribution_mode": distribution_mode,
-            }
-        super().__init__(num, env_name, options, **kwargs)
+        })
+
+        super().__init__(num, env_name, **kwargs)
         
         
 class ToBaselinesVecEnv(gym3.ToBaselinesVecEnv):
