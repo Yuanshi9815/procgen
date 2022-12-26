@@ -1,7 +1,7 @@
 #pragma once
 #include "../vecoptions.h"
 
-class CoinrunContextOption
+class ClimberContextOption
 {
 private:
     /* data */
@@ -9,7 +9,7 @@ public:
     // float start_r;
     // int fish_interval;
 
-    CoinrunContextOption(/* args */);
-    ~CoinrunContextOption();
+    ClimberContextOption(/* args */);
+    ~ClimberContextOption();
     void parse_options(VecOptions *opts);
 };
