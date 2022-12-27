@@ -126,6 +126,7 @@ class Game {
     void reset();
     void render_to_buf(void *buf, int w, int h, bool antialias);
     void parse_options(std::string name, VecOptions opt_vec);
+    void parse_context_options(std::string name, VecOptions opt_vec);
 
     virtual ~Game() = 0;
     virtual void observe();

@@ -45,7 +45,16 @@ int libenv_version() {
 }
 
 libenv_env *libenv_make(int num_envs, const struct libenv_options options) {
-    auto venv = new VecGame(num_envs, VecOptions(options));
+    // auto venv = new VecGame(num_envs, VecOptions(options));
+    // return (libenv_env *)(venv);
+}
+
+libenv_env *libenv_contextual_make(int num_envs, const struct libenv_options options, const struct libenv_options contexts[]) {
+    VecOptions contexts_options[num_envs];
+    for (int i = 0; i < num_envs; i++) {
+        contexts_options[i] = VecOptions(contexts[i]);
+    }
+    auto venv = new VecGame(num_envs, VecOptions(options), contexts_options);
     return (libenv_env *)(venv);
 }
 
@@ -166,7 +175,7 @@ inline uint32_t hash_str_uint32(const std::string &str) {
     return hash;
 }
 
-VecGame::VecGame(int _nenvs, VecOptions opts) {
+VecGame::VecGame(int _nenvs, VecOptions opts, VecOptions contexts[]) {
     render_human = false;
     num_envs = _nenvs;
     games.resize(num_envs);
@@ -317,6 +326,7 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
         games[n]->game_n = n;
         games[n]->is_waiting_for_step = false;
         games[n]->parse_options(name, opts);
+        games[n]->parse_context_options(name, contexts[n]);
         games[n]->info_name_to_offset = info_name_to_offset;
 
         // Auto-selected a fixed_asset_seed if one wasn't specified on

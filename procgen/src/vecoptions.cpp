@@ -1,6 +1,9 @@
 #include "vecoptions.h"
 #include "cpp-utils.h"
 
+VecOptions::VecOptions() {
+}
+
 VecOptions::VecOptions(const struct libenv_options options) {
     m_options = std::vector<libenv_option>(options.items, options.items + options.count);
 }

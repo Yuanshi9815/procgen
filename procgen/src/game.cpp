@@ -154,6 +154,10 @@ void Game::parse_options(std::string name, VecOptions opts) {
     opts.consume_int("debug_mode", &options.debug_mode);
     opts.consume_int("game_type", &game_type);
 
+    opts.ensure_empty();
+}
+
+void Game::parse_context_options(std::string name, VecOptions opts){
     if (name == "bigfish") {
         bigfish_context_option->parse_options(&opts);
     } else if (name == "bossfight") {
@@ -189,9 +193,6 @@ void Game::parse_options(std::string name, VecOptions opts) {
     } else {
         fatal("unknown game name %s", name.c_str());
     }
-
-
-    opts.ensure_empty();
 }
 
 void Game::render_to_buf(void *dst, int w, int h, bool antialias) {

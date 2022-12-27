@@ -15,6 +15,7 @@ There is no error if an option is missing, the passed value is not changed in th
 class VecOptions {
   public:
     VecOptions(const struct libenv_options options);
+    VecOptions();
     void consume_string(std::string name, std::string *value, bool use_default = false, std::string default_value = "");
     void consume_int(std::string name, int32_t *value, bool use_default = false, int32_t default_value = 0);
     void consume_float(std::string name, float *value, bool use_default = false, float default_value = 0.0);

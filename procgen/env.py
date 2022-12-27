@@ -3,9 +3,11 @@ import random
 from typing import Sequence, Optional, List
 
 import gym3
-from gym3.libenv import CEnv
+from .libenv import CEnv
 import numpy as np
 from .builder import build
+
+from .default_context import default_context_options
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -73,6 +75,7 @@ class BaseProcgenEnv(CEnv):
         num,
         env_name,
         options,
+        context_options=None,
         debug=False,
         rand_seed=None,
         num_levels=0,
@@ -120,27 +123,23 @@ class BaseProcgenEnv(CEnv):
                 "render_human": render_human,
                 # these will only be used the first time an environment is created in a process
                 "resource_root": resource_root,
-
-
-                # "start_r": 2.,
-                # "fish_interval": 1,
-                # "completion_bonus": 10,
-                # "positive_reward": 1,
-                # "fish_min_r": 0.25,
-                # "fish_max_r": 2.,
-                # "fish_quota": 100,
-                # "from_left_prob": 0.5,
-                # "min_speed": 0.15,
-                # "max_speed": .5,
             }
         )
 
         self.options = options
 
+        # combine the default context options with the user-specified ones
+        new_context_options = []
+        if context_options is None:
+            context_options = [{} for _ in range(num)]
+        for context_option in context_options:
+            new_context_options.append({**default_context_options[env_name], **context_option})
+
         super().__init__(
             lib_dir=lib_dir,
             num=num,
             options=options,
+            context_options=new_context_options,
             c_func_defs=[
                 "int get_state(libenv_env *, int, char *, int);",
                 "void set_state(libenv_env *, int, char *, int);",
