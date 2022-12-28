@@ -38,18 +38,18 @@ class BossfightGame : public BasicAbstractGame {
     int time_to_swap = 0;
     int invulnerable_duration = 0;
     int vulnerable_duration = 0;
-    int num_rounds = 0; // 总共有多少round（Boss每个有多个round的状态）
-    int round_num = 0; // 当前是第几个round
-    int round_health = 0; // 每个round，boss的血量
-    int boss_vel_timeout = 0; // boss切换方向的时间间隔
-    int curr_vel_timeout = 0; // 当前的时间间隔
-    int attack_mode = 0; // 攻击模式
+    int num_rounds = 0;         // 总共有多少round（Boss每个有多个round的状态）
+    int round_num = 0;          // 当前是第几个round
+    int round_health = 0;       // 每个round，boss的血量
+    int boss_vel_timeout = 0;   // boss切换方向的时间间隔
+    int curr_vel_timeout = 0;   // 当前的时间间隔
+    int attack_mode = 0;        // 攻击模式
     int player_laser_theme = 0; // 玩家的子弹皮肤
-    int boss_laser_theme = 0; // boss的子弹皮肤
+    int boss_laser_theme = 0;   // boss的子弹皮肤
     int damaged_until_time = 0;
-    
-    bool shields_are_up = false;  // 是否有护盾
-    bool barriers_moves_right = false;
+
+    bool shields_are_up = false; // 是否有护盾
+    bool barriers_moves_right = false; // 没有用到的变量
     float base_fire_prob = 0.0f;
     float boss_bullet_vel = 0.0f;
     float barrier_vel = 0.0f;
@@ -122,7 +122,7 @@ class BossfightGame : public BasicAbstractGame {
 
     bool should_draw_entity(const std::shared_ptr<Entity> &entity) override {
         if (entity->type == SHIELDS)
-            return shields_are_up;
+            return shields_are_up && bossfight_context_option->enable_shield;
 
         return BasicAbstractGame::should_draw_entity(entity);
     }
@@ -132,7 +132,7 @@ class BossfightGame : public BasicAbstractGame {
             bool will_erase = false;
 
             if (target->type == SHIELDS) {
-                if (shields_are_up) {
+                if (shields_are_up && bossfight_context_option->enable_shield) {
                     src->type = REFLECTED_BULLET;
 
                     float theta = PI * (1.25 + .5 * rand_pct);
@@ -143,7 +143,7 @@ class BossfightGame : public BasicAbstractGame {
                     src->alpha_decay = 0.8f;
                 }
             } else if (target->type == BOSS) {
-                if (!shields_are_up) {
+                if (!(shields_are_up && bossfight_context_option->enable_shield)) {
                     target->health -= 1;
                     will_erase = true;
 
@@ -215,14 +215,17 @@ class BossfightGame : public BasicAbstractGame {
         choose_random_theme(boss);
         match_aspect_ratio(boss);
 
-        // TODO？
+        // 给Boss添加护盾图层
         shields = add_entity_rxy(boss->x, boss->y, 0, 0, 1.2 * boss->rx, 1.2 * boss->ry, SHIELDS);
 
-        // TODO？
+        // Boss改变方向的timeout
         boss_vel_timeout = bossfight_context_option->boss_vel_timeout;
         base_fire_prob = 0.1f;
-        round_health = rand_gen.randn(9) + 1;
-        num_rounds = 1 + rand_gen.randn(5);
+        // 生成这个level的rounds数量和每个round中boss的血量
+        int health_range = bossfight_context_option->max_round_health - bossfight_context_option->min_round_health + 1;
+        round_health = rand_gen.randn(health_range) + bossfight_context_option->min_round_health;
+        int rounds_range = bossfight_context_option->max_rounds_num - bossfight_context_option->min_rounds_num + 1;
+        num_rounds = rand_gen.randn(rounds_range) + bossfight_context_option->min_rounds_num;
         invulnerable_duration = 2 + rand_gen.randn(max_extra_invulnerable + 1);
         vulnerable_duration = 500; // essentially infinite
 
@@ -236,7 +239,23 @@ class BossfightGame : public BasicAbstractGame {
         attack_modes.clear();
 
         for (int i = 0; i < num_rounds; i++) {
-            attack_modes.push_back(rand_gen.randn(NUM_ATTACK_MODES));
+            int modes_num = 0;
+            int num_map[4] = {0, 0, 0, 0};
+            if (bossfight_context_option->enable_attack_mode_0) {
+                num_map[modes_num++] = 0;
+            }
+            if (bossfight_context_option->enable_attack_mode_1) {
+                num_map[modes_num++] = 1;
+            }
+            if (bossfight_context_option->enable_attack_mode_2) {
+                num_map[modes_num++] = 2;
+            }
+            if (bossfight_context_option->enable_attack_mode_3) {
+                num_map[modes_num++] = 3;
+            }
+            attack_modes.push_back(
+                num_map[rand_gen.randn(modes_num)]
+            );
         }
 
         round_num = 0;
@@ -247,7 +266,7 @@ class BossfightGame : public BasicAbstractGame {
         reposition_agent();
         agent->y = agent->ry;
 
-        barrier_vel = 0.1f;
+        barrier_vel = 10.f;
         barriers_moves_right = rand_gen.randbool();
         barrier_spawn_prob = 0.025f;
 
@@ -273,6 +292,7 @@ class BossfightGame : public BasicAbstractGame {
     }
 
     void attack_mode_0() {
+        // 每过8个frame发射五颗向前的子弹
         if (cur_time % 8 == 0) {
             for (int i = 0; i < 5; i++) {
                 boss_fire(.5, boss_bullet_vel, PI * 1.5 + (i - 2) * PI / 8);
@@ -281,6 +301,7 @@ class BossfightGame : public BasicAbstractGame {
     }
 
     void attack_mode_1() {
+        // 每过5个frame发射四颗子弹，方向为360度四等分，每过一定的frame后会微幅改变方向
         int dt = 5;
         if (cur_time % dt == 0) {
             int k = cur_time / dt;
@@ -292,6 +313,7 @@ class BossfightGame : public BasicAbstractGame {
     }
 
     void attack_mode_2() {
+        // 每过10个frame发射8颗子弹，方向为360度八等分
         if (cur_time % 10 == 0) {
             int num_bullets = 8;
             float offset = rand_pct * 2 * PI;
@@ -304,6 +326,7 @@ class BossfightGame : public BasicAbstractGame {
     }
 
     void attack_mode_3() {
+        // 每过4个frame发射一颗子弹，方向为随机
         if (cur_time % 4 == 0) {
             boss_fire(.5, boss_bullet_vel, PI * (1 + rand_pct));
         }
@@ -374,7 +397,7 @@ class BossfightGame : public BasicAbstractGame {
             if (time_to_swap > 0) {
                 time_to_swap -= 1;
             } else {
-                if (shields_are_up) {
+                if (shields_are_up && bossfight_context_option->enable_shield) {
                     time_to_swap = vulnerable_duration;
                 } else {
                     time_to_swap = invulnerable_duration;

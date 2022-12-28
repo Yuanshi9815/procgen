@@ -2,17 +2,13 @@
 #include "../cpp-utils.h"
 #include <iostream>
 
-BossfightContextOption::BossfightContextOption(/* args */)
-{
-}
-    
-
-BossfightContextOption::~BossfightContextOption()
-{
+BossfightContextOption::BossfightContextOption(/* args */) {
 }
 
-void BossfightContextOption::parse_options(VecOptions *opts)
-{
+BossfightContextOption::~BossfightContextOption() {
+}
+
+void BossfightContextOption::parse_options(VecOptions *opts) {
     opts->consume_int("completion_bonus", &completion_bonus, true, 10);
     opts->consume_int("positive_reward", &positive_reward, true, 1);
 
@@ -22,7 +18,21 @@ void BossfightContextOption::parse_options(VecOptions *opts)
 
     opts->consume_int("boss_vel_timeout", &boss_vel_timeout, true, 50);
     opts->consume_int("boss_damage_timeout", &boss_damage_timeout, true, 40);
+
+    opts->consume_int("max_rounds_num", &max_rounds_num, true, 5);
+    opts->consume_int("min_rounds_num", &min_rounds_num, true, 1);
+    opts->consume_int("max_round_health", &max_round_health, true, 9);
+    opts->consume_int("min_round_health", &min_round_health, true, 1);
+
+    opts->consume_bool("enable_attack_mode_0", &enable_attack_mode_0, true, true);
+    opts->consume_bool("enable_attack_mode_1", &enable_attack_mode_1, true, true);
+    opts->consume_bool("enable_attack_mode_2", &enable_attack_mode_2, true, true);
+    opts->consume_bool("enable_attack_mode_3", &enable_attack_mode_3, true, true);
     
+    opts->consume_bool("enable_shield", &enable_shield, true, true);
+
+    
+
     std::cout << "boss_r: " << boss_r << std::endl;
     // opts->consume_int("fish_interval", &fish_interval);
 }
