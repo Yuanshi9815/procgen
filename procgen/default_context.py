@@ -27,4 +27,13 @@ default_context_options = {
         "max_barriers_num": 3,
         "min_barriers_num": 1,
     },
+    "caveflyer": {
+        "world_dim": 30,
+        "objects_factor": 10,
+        "enable_obstacle": False,
+        "enable_target": False,
+        "enable_enemy": True,
+        "enemy_v_fast": .2,
+        "enemy_v_slow": .1,
+    }
 }
