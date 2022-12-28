@@ -31,7 +31,8 @@ void BossfightContextOption::parse_options(VecOptions *opts) {
     
     opts->consume_bool("enable_shield", &enable_shield, true, true);
 
-    
+    opts->consume_int("max_barriers_num", &max_barriers_num, true, 3);
+    opts->consume_int("min_barriers_num", &min_barriers_num, true, 1);
 
     std::cout << "boss_r: " << boss_r << std::endl;
     // opts->consume_int("fish_interval", &fish_interval);

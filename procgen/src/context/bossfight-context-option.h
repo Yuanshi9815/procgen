@@ -27,6 +27,9 @@ class BossfightContextOption {
 
     bool enable_shield;
 
+    int max_barriers_num;
+    int min_barriers_num;
+
     BossfightContextOption(/* args */);
     ~BossfightContextOption();
     void parse_options(VecOptions *opts);

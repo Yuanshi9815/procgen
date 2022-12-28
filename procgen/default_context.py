@@ -22,6 +22,9 @@ default_context_options = {
         "enable_attack_mode_2": True,
         "enable_attack_mode_3": True,
 
-        "enable_shield": False,
+        "enable_shield": True,
+
+        "max_barriers_num": 3,
+        "min_barriers_num": 1,
     },
 }
