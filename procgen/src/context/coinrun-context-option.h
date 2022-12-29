@@ -6,8 +6,21 @@ class CoinrunContextOption
 private:
     /* data */
 public:
-    // float start_r;
-    // int fish_interval;
+    int visibility;
+    float maxspeed;
+    int main_width;
+    int main_height;
+
+    bool allow_pit;
+    bool allow_crate;
+    bool unenven_ground;
+    bool allow_lava;
+    bool allow_saw;
+    bool allow_monsters;
+
+    int min_crate_height;
+    int max_crate_height;
+
 
     CoinrunContextOption(/* args */);
     ~CoinrunContextOption();
