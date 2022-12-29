@@ -169,10 +169,26 @@ class Climber : public BasicAbstractGame {
     }
 
     void generate_platforms() {
-        int difficulty = rand_gen.randn(3);
+        // Due to the original game's design.
+        // The number of platforms is determined by the difficulty.
+        // In different difficulty, however, some numbers overlap.
+        int max_p = climber_context_option->max_platforms;
+        int min_p = climber_context_option->min_platforms;
+
+        int min_difficulty = ceil(sqrt(min_p))-1;
+        int max_difficulty = ceil(sqrt(max_p-1))-1;
+        max_difficulty = max_difficulty < 0 ? 0 : max_difficulty;
+        min_difficulty = min_difficulty > max_difficulty ? max_difficulty : min_difficulty;
+        printf("min_difficulty: %d, max_difficulty: %d\n", min_difficulty, max_difficulty);
+        int difficulty = rand_gen.randn(max_difficulty - min_difficulty + 1) + min_difficulty;
+        
         int min_platforms = difficulty * difficulty + 1;
         int max_platforms = (difficulty + 1) * (difficulty + 1) + 1;
+        max_platforms = max_platforms > max_p ? max_p : max_platforms;
+        min_platforms = min_platforms < min_p ? min_p : min_platforms;
         int num_platforms = rand_gen.randn(max_platforms - min_platforms + 1) + min_platforms;
+
+        printf("Difficulty: %d, num_platforms: %d\n", difficulty, num_platforms);
 
         coin_quota = 0;
         coins_collected = 0;
@@ -182,6 +198,7 @@ class Climber : public BasicAbstractGame {
 
         int margin_x = 3;
         float enemy_prob = options.distribution_mode == EasyMode ? .2 : .5;
+        enemy_prob = climber_context_option->enemy_prob;
 
         for (int i = 0; i < num_platforms; i++) {
             int delta_y = choose_delta_y();
@@ -216,7 +233,7 @@ class Climber : public BasicAbstractGame {
                 set_obj(nx, curr_y, WALL_TOP);
             }
 
-            if (rand_gen.rand01() < .5 || i == num_platforms - 1) {
+            if (rand_gen.rand01() < climber_context_option->coin_prob || i == num_platforms - 1) {
                 int coin_x = rand_gen.choose_one(candidates);
                 add_entity(coin_x + .5, curr_y + 1.5, 0, 0, 0.3f, COIN);
                 coin_quota += 1;
@@ -229,7 +246,8 @@ class Climber : public BasicAbstractGame {
 
     void choose_world_dim() override {
         main_width = options.distribution_mode == EasyMode ? 16 : 20;
-        main_height = 64;
+        main_width = climber_context_option->world_width;
+        main_height = climber_context_option->max_platforms < 10 ? 64: climber_context_option->max_platforms * 6;
     }
 
     void game_reset() override {
@@ -260,7 +278,7 @@ class Climber : public BasicAbstractGame {
 
     void choose_center(float &cx, float &cy) override {
         cx = main_width / 2.0;
-        cy = agent->y + main_width / 2.0 - 5 * agent->ry;
+        cy = agent->y + main_width / 2.0 - 10 * agent->ry;
         visibility = main_width;
     }
 

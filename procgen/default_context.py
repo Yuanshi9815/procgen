@@ -43,5 +43,41 @@ default_context_options = {
         "eat_time": 75,
         "egg_time": 50,
         "total_orbs": 10,
-    }
+    },
+    "climber": {
+        "gravity": .2,
+        "max_jump": 1.5,
+        "air_control": .15,
+        "maxspeed": .5,
+        "min_platforms": 1,
+        "max_platforms": 10,
+        "enemy_prob": .3,
+        "coin_prob": .5,
+        "max_plat_len": 11,
+        "min_plat_len": 2,
+        "world_width": 16,
+    },
+    "coinrun": {
+    },
+    "dodgeball": {
+    },
+    "fruitbot": {
+    },
+    "heist": {
+    },
+    "jumper": {
+    },
+    "leaper": {
+    },
+    "maze": {
+    },
+    "miner": {
+    },
+    "ninja": {
+    },
+    "plunder": {
+    },
+    "starpilot": {
+    },
+
 }
