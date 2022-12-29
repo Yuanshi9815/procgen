@@ -35,5 +35,13 @@ default_context_options = {
         "enable_enemy": True,
         "enemy_v_fast": .2,
         "enemy_v_slow": .1,
+    },
+    "chaser":{
+        "maze_dim": 11,
+        "total_enemies": 3,
+        # "extra_orb_sign": 0,
+        "eat_time": 75,
+        "egg_time": 50,
+        "total_orbs": 10,
     }
 }

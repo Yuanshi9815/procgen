@@ -138,6 +138,9 @@ class ChaserGame : public BasicAbstractGame {
     }
 
     void game_reset() override {
+        eat_timeout = chaser_context_option->eat_time;
+        egg_timeout = chaser_context_option->egg_time;
+
         int extra_orb_sign = 1;
 
         if (options.distribution_mode == EasyMode) {
@@ -155,6 +158,9 @@ class ChaserGame : public BasicAbstractGame {
         } else {
             fassert(false);
         }
+
+        maze_dim = chaser_context_option->maze_dim;
+        total_enemies = chaser_context_option->total_enemies;
 
         if (maze_gen == nullptr) {
             std::shared_ptr<MazeGen> _maze_gen(new MazeGen(&rand_gen, maze_dim));
@@ -181,9 +187,21 @@ class ChaserGame : public BasicAbstractGame {
         int num_quadrants = 4;
         int extra_quad = rand_gen.randn(num_quadrants);
 
+        int base_orbs_per_quad = chaser_context_option->total_orbs / num_quadrants;
+        int mod_orbs = chaser_context_option->total_orbs % num_quadrants;
+        if (mod_orbs == 0) {
+            extra_orb_sign = 0;
+        } else if (mod_orbs == 1) {
+            extra_orb_sign = 1;
+        } else {
+            base_orbs_per_quad++;
+            extra_orb_sign = -1;
+        }
+
+        // Select the quadrant that will have the extra orb
         for (int i = 0; i < num_quadrants; i++) {
             std::vector<int> quadrant;
-            orbs_for_quadrant.push_back(1 + (i == extra_quad ? extra_orb_sign : 0));
+            orbs_for_quadrant.push_back(base_orbs_per_quad + (i == extra_quad ? extra_orb_sign : 0));
             quadrants.push_back(quadrant);
         }
 
@@ -307,7 +325,8 @@ class ChaserGame : public BasicAbstractGame {
             } else if (ent->type == ENEMY_EGG) {
                 num_enemies++;
                 ent->health -= 1;
-
+                // The health of enemy eggs is used to track how long they have been alive.
+                // When it reaches 0, the egg hatches into an enemy.
                 if (ent->health == 0) {
                     ent->will_erase = true;
                     auto enemy = spawn_child(ent, ENEMY, .5);
@@ -365,6 +384,7 @@ class ChaserGame : public BasicAbstractGame {
             }
         };
 
+        // If any enemiy have been eaten, spawn a new one
         if (num_enemies < total_enemies) {
             int selected_idx = step_rand_int % free_cells.size();
             spawn_egg(free_cells[selected_idx]);
@@ -372,12 +392,14 @@ class ChaserGame : public BasicAbstractGame {
 
         int agent_idx = get_agent_index();
 
+        // If the agent has collected an orb, mark it as collected
         if (get_obj(agent_idx) == ORB) {
             set_obj(agent_idx, SPACE);
             step_data.reward += ORB_REWARD;
             orbs_collected += 1;
         }
 
+        // If all orbs have been collected, mark the level as complete
         if (orbs_collected == total_orbs) {
             step_data.reward += COMPLETION_BONUS;
             step_data.level_complete = true;
