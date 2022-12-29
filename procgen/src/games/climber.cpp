@@ -278,7 +278,7 @@ class Climber : public BasicAbstractGame {
 
     void choose_center(float &cx, float &cy) override {
         cx = main_width / 2.0;
-        cy = agent->y + main_width / 2.0 - 10 * agent->ry;
+        cy = agent->y + main_width / 2.0 - climber_context_option->margin_bottom * agent->ry;
         visibility = main_width;
     }
 

@@ -56,6 +56,7 @@ default_context_options = {
         "max_plat_len": 11,
         "min_plat_len": 2,
         "world_width": 16,
+        "margin_bottom": 5,
     },
     "coinrun": {
     },

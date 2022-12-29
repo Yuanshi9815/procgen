@@ -21,7 +21,9 @@ public:
     int max_plat_len; // The maximum length of a platform. [1, 10]
     int min_plat_len; // The minimum length of a platform. [1, 10]
 
-    int world_width;
+    int world_width; // The width of the world. [1, 10]
+
+    int margin_bottom; // The margin from the bottom of the screen. 
 
     ClimberContextOption(/* args */);
     ~ClimberContextOption();

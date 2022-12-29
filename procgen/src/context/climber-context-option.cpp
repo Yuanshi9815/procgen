@@ -23,7 +23,7 @@ void ClimberContextOption::parse_options(VecOptions *opts)
     opts->consume_int("max_plat_len", &max_plat_len, true, 11);
     opts->consume_int("min_plat_len", &min_plat_len, true, 2);
     opts->consume_int("world_width", &world_width, true, 16);
-
+    opts->consume_int("margin_bottom", &margin_bottom, true, 5);
     // opts->consume_float("start_r", &start_r);
     // opts->consume_int("fish_interval", &fish_interval);
 }
