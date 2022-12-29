@@ -133,8 +133,6 @@ class CEnv(Env):
         c_contexts, self._contexts_keepalives = self._convert_contexts(
             self._ffi, self._c_lib, context_options
         )
-        print(c_options, c_options[0])
-        print(c_contexts, c_contexts[0])
         self._c_env = self._c_lib.libenv_contextual_make(num, c_options[0], c_contexts)
 
         ob_space, ob_specs = self._get_space(self._c_lib.LIBENV_SPACE_OBSERVATION)
