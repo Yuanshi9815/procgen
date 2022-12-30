@@ -108,6 +108,8 @@ class HeistGame : public BasicAbstractGame {
 
         maxspeed = .75;
 
+        world_dim = heist_context_option->world_dim;
+
         main_width = world_dim;
         main_height = world_dim;
     }
@@ -130,6 +132,9 @@ class HeistGame : public BasicAbstractGame {
         if (num_keys > 3)
             num_keys = 3;
 
+        num_keys = heist_context_option->min_keys > num_keys ? heist_context_option->min_keys : num_keys;
+        num_keys = heist_context_option->max_keys < num_keys ? heist_context_option->max_keys : num_keys;
+        
         has_keys.clear();
 
         for (int i = 0; i < num_keys; i++) {

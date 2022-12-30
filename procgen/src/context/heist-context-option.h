@@ -7,7 +7,10 @@ private:
     /* data */
 public:
     // float start_r;
-    // int fish_interval;
+    int world_dim;
+    int min_maze_dim;
+    int min_keys;
+    int max_keys;
 
     HeistContextOption(/* args */);
     ~HeistContextOption();

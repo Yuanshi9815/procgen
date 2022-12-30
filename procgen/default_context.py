@@ -106,6 +106,7 @@ default_context_options = {
         "max_foods": 19,
     },
     "heist": {
+        "world_dim": 9,
     },
     "jumper": {
     },
