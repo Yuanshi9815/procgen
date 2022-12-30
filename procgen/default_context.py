@@ -162,7 +162,17 @@ default_context_options = {
         "min_speed": .15,
     },
     "starpilot": {
-        
+        "maxspeed": .75,
+        "max_group_size": 5,
+        "can_spawn_left": False,
+        "left_prob": .1,
+        "min_enemy_delta_t": 10,
+        "max_enemy_delta_t": 30,
+        "flyer_prob_weight": 1,
+        "meteor_prob_weight": 0,
+        "cloud_prob_weight": 0,
+        "turret_prob_weight": 0,
+        "fastflyer_prob_weight": 0,
     },
 
 }
