@@ -134,9 +134,18 @@ default_context_options = {
     "miner": {
         "world_dim": 15,
         "diamond_pct": .03,
-        "boulder_pct": .0,
+        "boulder_pct": .2,
     },
     "ninja": {
+        "gravity": .2,
+        "max_jump": 1.25,
+        "jump_charge_inc": .25,
+        "air_control": .15,
+        "maxspeed": .5,
+        "visibility": 16,
+        "bomb_prob": .5,
+        "max_num_sections": 6,
+        "max_gap_inc": 1,
     },
     "plunder": {
     },

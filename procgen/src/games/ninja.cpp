@@ -207,8 +207,12 @@ class Ninja : public BasicAbstractGame {
 
         float bomb_prob = .25 * (difficulty - 1);
         int max_gap_inc = difficulty == 1 ? 1 : 2;
+        max_gap_inc = ninja_context_option->max_gap_inc;
+
+        bomb_prob = ninja_context_option->bomb_prob;
 
         int num_sections = rand_gen.randn(difficulty) + difficulty;
+        num_sections = ninja_context_option->max_num_sections < num_sections ? ninja_context_option->max_num_sections : num_sections; 
         int start_x = 5;
         int curr_x = start_x;
         int curr_y = main_height / 2;
@@ -316,6 +320,13 @@ class Ninja : public BasicAbstractGame {
         jump_charge = 0;
         jump_charge_inc = .25;
         visibility = 16;
+
+        gravity = ninja_context_option->gravity;
+        max_jump = ninja_context_option->max_jump;
+        jump_charge_inc = ninja_context_option->jump_charge_inc;
+        air_control = ninja_context_option->air_control;
+        maxspeed = ninja_context_option->maxspeed;
+        visibility = ninja_context_option->visibility;
 
         agent->rx = .5;
         agent->ry = .5;

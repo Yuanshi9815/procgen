@@ -6,8 +6,15 @@ class NinjaContextOption
 private:
     /* data */
 public:
-    // float start_r;
-    // int fish_interval;
+    float gravity;
+    float max_jump;
+    float jump_charge_inc;
+    float air_control;
+    float maxspeed;
+    int visibility;
+    float bomb_prob;
+    int max_num_sections;
+    int max_gap_inc;
 
     NinjaContextOption(/* args */);
     ~NinjaContextOption();
