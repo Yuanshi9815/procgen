@@ -148,6 +148,18 @@ default_context_options = {
         "max_gap_inc": 1,
     },
     "plunder": {
+        "target_time_reward": 0.1,
+        "target_time_penalty": 0.1,
+        "step_time_penalty": 0.0015,
+        "fire_time_penalty": 0.02,
+        "target_quota": 20,
+        "spawn_prob": .06,
+        "num_lanes": 5,
+        "r_scale": 1.5,
+        "left_prob": .5,
+        "enemy_prob": .5,
+        "max_speed": .25,
+        "min_speed": .15,
     },
     "starpilot": {
     },

@@ -6,8 +6,19 @@ class PlunderContextOption
 private:
     /* data */
 public:
-    // float start_r;
-    // int fish_interval;
+    float target_time_reward;
+    float target_time_penalty;
+    float step_time_penalty;
+    float fire_time_penalty;
+    int target_quota;
+    float spawn_prob;
+    int num_lanes;
+    float r_scale;
+    float left_prob;
+    float enemy_prob;
+    float max_speed;
+    float min_speed;
+
 
     PlunderContextOption(/* args */);
     ~PlunderContextOption();
