@@ -127,6 +127,8 @@ class MinerGame : public BasicAbstractGame {
             main_width = 35;
             main_height = 35;
         }
+        main_width = miner_context_option-> world_dim;
+        main_height = miner_context_option-> world_dim;
     }
 
     void game_reset() override {
@@ -142,6 +144,9 @@ class MinerGame : public BasicAbstractGame {
 
         float diamond_pct = 12 / 400.0f;
         float boulder_pct = 80 / 400.0f;
+
+        diamond_pct = miner_context_option-> diamond_pct;
+        boulder_pct = miner_context_option-> boulder_pct;
 
         int num_diamonds = (int)(diamond_pct * grid_size);
         int num_boulders = (int)(boulder_pct * grid_size);

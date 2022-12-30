@@ -132,6 +132,9 @@ default_context_options = {
         "max_maze_dim": 15,
     },
     "miner": {
+        "world_dim": 15,
+        "diamond_pct": .03,
+        "boulder_pct": .0,
     },
     "ninja": {
     },

@@ -1,13 +1,13 @@
 #pragma once
 #include "../vecoptions.h"
 
-class MinerContextOption
-{
-private:
+class MinerContextOption {
+  private:
     /* data */
-public:
-    // float start_r;
-    // int fish_interval;
+  public:
+    float diamond_pct;
+    float boulder_pct;
+    int world_dim;
 
     MinerContextOption(/* args */);
     ~MinerContextOption();
