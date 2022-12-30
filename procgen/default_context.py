@@ -162,6 +162,7 @@ default_context_options = {
         "min_speed": .15,
     },
     "starpilot": {
+        
     },
 
 }
