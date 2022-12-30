@@ -92,6 +92,18 @@ default_context_options = {
         "allow_bottom_exit": True,
     },
     "fruitbot": {
+        "main_width":10,
+        "main_height":60,
+        "min_sep": 4,
+        "num_walls": 5,
+        "object_group_size" : 6,
+        "buf_h":4,
+        "door_prob": .125,
+        "min_pct": .1,
+        "min_fruits": 10,
+        "max_fruits": 19,
+        "min_foods": 10,
+        "max_foods": 19,
     },
     "heist": {
     },
