@@ -116,7 +116,7 @@ class LeaperGame : public BasicAbstractGame {
     }
 
     int choose_extra_space() {
-        return options.distribution_mode == EasyMode ? 0 : rand_gen.randn(2);
+        return options.distribution_mode == rand_gen.randn(leaper_context_option->max_extra_space + 1);
     }
 
     void game_reset() override {
@@ -143,6 +143,11 @@ class LeaperGame : public BasicAbstractGame {
             max_log_speed = 0.2f;
         }
 
+        min_car_speed = leaper_context_option->min_car_speed;
+        max_car_speed = leaper_context_option->max_car_speed;
+        min_log_speed = leaper_context_option->min_log_speed;
+        max_log_speed = leaper_context_option->max_log_speed;
+
         // road
         bottom_road_y = choose_extra_space() + 1;
 
@@ -152,10 +157,13 @@ class LeaperGame : public BasicAbstractGame {
         // half the time we add an extra lane to either roads or water
         int extra_lane_option = options.distribution_mode == EasyMode ? 0 : rand_gen.randn(4);
 
-        int num_road_lanes = difficulty + (extra_lane_option == 2 ? 1 : 0);
+        int extra_road = leaper_context_option->max_road - leaper_context_option->min_road;
+        int num_road_lanes = leaper_context_option->min_road + rand_gen.randn(extra_road + 1);
         road_lane_speeds.clear();
         for (int lane = 0; lane < num_road_lanes; lane++) {
             road_lane_speeds.push_back(rand_sign() * rand_gen.randrange(min_car_speed, max_car_speed));
+            // road_lane_speeds.push_back((rand_gen.rand01() < leaper_context_option->car_left_prob ? 1 : -1) * rand_gen.randrange(min_car_speed, max_car_speed));
+
             fill_elem(0, bottom_road_y + lane, main_width, 1, ROAD);
         }
 
@@ -163,7 +171,8 @@ class LeaperGame : public BasicAbstractGame {
         bottom_water_y = bottom_road_y + num_road_lanes + choose_extra_space() + 1;
 
         water_lane_speeds.clear();
-        int num_water_lanes = difficulty + (extra_lane_option == 3 ? 1 : 0);
+        int extra_water = leaper_context_option->max_log - leaper_context_option->min_log;
+        int num_water_lanes = leaper_context_option->min_log + rand_gen.randn(extra_water + 1);
         int curr_sign = rand_sign();
         for (int lane = 0; lane < num_water_lanes; lane++) {
             water_lane_speeds.push_back(curr_sign * rand_gen.randrange(min_log_speed, max_log_speed));
