@@ -112,6 +112,11 @@ default_context_options = {
         "max_keys": 3,
     },
     "jumper": {
+        "world_dim": 20,
+        "visibility": 12,
+        "compass_dim": 3,
+        "jump_cooldown": 3,
+        "max_jump_count": 2,
     },
     "leaper": {
     },

@@ -6,8 +6,11 @@ class JumperContextOption
 private:
     /* data */
 public:
-    // float start_r;
-    // int fish_interval;
+    int world_dim;
+    int visibility;
+    int compass_dim;
+    int jump_cooldown;
+    int max_jump_count;
 
     JumperContextOption(/* args */);
     ~JumperContextOption();
