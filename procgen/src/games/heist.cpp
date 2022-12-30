@@ -117,7 +117,7 @@ class HeistGame : public BasicAbstractGame {
     void game_reset() override {
         BasicAbstractGame::game_reset();
 
-        int min_maze_dim = 5;
+        int min_maze_dim = heist_context_option->min_maze_dim;
         int max_diff = (world_dim - min_maze_dim) / 2;
         int difficulty = rand_gen.randn(max_diff + 1);
 
