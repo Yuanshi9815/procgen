@@ -48,6 +48,8 @@ class MazeGame : public BasicAbstractGame {
             world_dim = 31;
         }
 
+        world_dim = maze_context_option->world_dim;
+
         main_width = world_dim;
         main_height = world_dim;
     }
@@ -55,9 +57,12 @@ class MazeGame : public BasicAbstractGame {
     void game_reset() override {
         BasicAbstractGame::game_reset();
 
+
         grid_step = true;
 
-        maze_dim = rand_gen.randn((world_dim - 1) / 2) * 2 + 3;
+        int extra_maze_dim = maze_context_option->world_dim - maze_context_option->min_maze_dim;
+        maze_dim = rand_gen.randn(extra_maze_dim + 1) + maze_context_option->min_maze_dim;
+        maze_dim = maze_dim > maze_context_option->max_maze_dim ? maze_context_option->max_maze_dim : maze_dim;
         int margin = (world_dim - maze_dim) / 2;
 
         std::shared_ptr<MazeGen> _maze_gen(new MazeGen(&rand_gen, maze_dim));

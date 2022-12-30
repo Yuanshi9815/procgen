@@ -12,6 +12,7 @@ MazeContextOption::~MazeContextOption()
 
 void MazeContextOption::parse_options(VecOptions *opts)
 {
-    // opts->consume_float("start_r", &start_r);
-    // opts->consume_int("fish_interval", &fish_interval);
+    opts->consume_int("world_dim", &world_dim, true, 15);
+    opts->consume_int("min_maze_dim", &min_maze_dim, true, 3);
+    opts->consume_int("max_maze_dim", &max_maze_dim, true, 15);
 }

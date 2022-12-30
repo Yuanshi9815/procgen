@@ -6,8 +6,9 @@ class MazeContextOption
 private:
     /* data */
 public:
-    // float start_r;
-    // int fish_interval;
+    int world_dim;
+    int min_maze_dim;
+    int max_maze_dim;
 
     MazeContextOption(/* args */);
     ~MazeContextOption();

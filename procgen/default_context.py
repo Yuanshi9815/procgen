@@ -127,6 +127,9 @@ default_context_options = {
         "car_left_prob": .5,
     },
     "maze": {
+        "world_dim": 15,
+        "min_maze_dim": 3,
+        "max_maze_dim": 15,
     },
     "miner": {
     },
