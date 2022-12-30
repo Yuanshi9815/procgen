@@ -1,5 +1,15 @@
 default_context_options = {
     "bigfish": {
+        "start_r": 1.,
+        "fish_prob": .1,
+        "from_left_prob": .5,
+        "completion_bonus": 10,
+        "positive_reward": 1,
+        "fish_min_r": .25,
+        "fish_max_r": 2.,
+        "fish_quota": 30,
+        "min_speed": .15,
+        "max_speed": .4,
     },
     "bossfight": {
         "completion_bonus": 10,

@@ -6,13 +6,20 @@
 
 const std::string NAME = "bigfish";
 
+const int COMPLETION_BONUS = 10.0f;
+const int POSITIVE_REWARD = 1.0f;
+
 const int FISH = 2;
 
+const float FISH_MIN_R = .25;
+const float FISH_MAX_R = 2;
+
+const int FISH_QUOTA = 30;
 
 class BigFish : public BasicAbstractGame {
   public:
-    int fish_eaten = 0;
-    float r_inc = 0.0;
+    int fish_eaten;
+    float r_inc;
 
     BigFish()
         : BasicAbstractGame(NAME) {
@@ -43,7 +50,7 @@ class BigFish : public BasicAbstractGame {
             if (obj->rx > agent->rx) {
                 step_data.done = true;
             } else {
-                step_data.reward += bigfish_context_option->positive_reward;
+                step_data.reward += POSITIVE_REWARD;
                 obj->will_erase = true;
                 agent->rx += r_inc;
                 agent->ry += r_inc;
@@ -60,11 +67,11 @@ class BigFish : public BasicAbstractGame {
 
         float start_r = bigfish_context_option->start_r;
 
-        // if (options.distribution_mode == EasyMode) {
-        //     start_r = 1;
-        // }
+        if (options.distribution_mode == EasyMode) {
+            start_r = 1;
+        }
 
-        r_inc = (bigfish_context_option->fish_max_r - start_r) / bigfish_context_option->fish_quota;
+        r_inc = (FISH_MAX_R - start_r) / FISH_QUOTA;
 
         agent->rx = start_r;
         agent->ry = start_r;
@@ -74,11 +81,11 @@ class BigFish : public BasicAbstractGame {
     void game_step() override {
         BasicAbstractGame::game_step();
 
-        if (rand_gen.randn(bigfish_context_option->fish_interval) == 0) {
+        if (rand_gen.rand01() < bigfish_context_option->fish_prob) {
             float ent_r = (bigfish_context_option->fish_max_r - bigfish_context_option->fish_min_r) * pow(rand_gen.rand01(), 1.4) + bigfish_context_option->fish_min_r;
             float ent_y = rand_gen.rand01() * (main_height - 2 * ent_r);
-            float moves_right = rand_gen.randrange(0, 1) < bigfish_context_option->from_left_prob;
-            float ent_vx = (bigfish_context_option->min_speed + rand_gen.randrange(0, 1) * bigfish_context_option->max_speed) * (moves_right ? 1 : -1);
+            float moves_right = rand_gen.rand01() < bigfish_context_option->from_left_prob;
+            float ent_vx = (bigfish_context_option->min_speed + rand_gen.rand01() * (bigfish_context_option->max_speed - bigfish_context_option->min_speed)) * (moves_right ? 1 : -1);
             float ent_x = moves_right ? -1 * ent_r : main_width + ent_r;
             int type = FISH;
             auto ent = add_entity(ent_x, ent_y, ent_vx, 0, ent_r, type);
@@ -98,18 +105,6 @@ class BigFish : public BasicAbstractGame {
         if (action_vx < 0)
             agent->is_reflected = true;
     }
-
-    void serialize(WriteBuffer *b) override {
-        BasicAbstractGame::serialize(b);
-        b->write_int(fish_eaten);
-        b->write_float(r_inc);
-    }
-
-    void deserialize(ReadBuffer *b) override {
-        BasicAbstractGame::deserialize(b);
-        fish_eaten = b->read_int();
-        r_inc = b->read_float();
-    }
 };
 
-REGISTER_GAME(NAME, BigFish);
+REGISTER_GAME("bigfish", BigFish);

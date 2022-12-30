@@ -8,7 +8,7 @@ private:
 public:
     float start_r;
     
-    int fish_interval;
+    float fish_prob;
     
     int completion_bonus;
     int positive_reward;
