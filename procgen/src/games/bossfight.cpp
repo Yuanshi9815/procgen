@@ -208,6 +208,9 @@ class BossfightGame : public BasicAbstractGame {
         boss_bullet_vel = options.distribution_mode == EasyMode ? .5 : .75;
         int max_extra_invulnerable = options.distribution_mode == EasyMode ? 1 : 3;
 
+        boss_bullet_vel = bossfight_context_option->boss_bullet_vel;
+        max_extra_invulnerable = bossfight_context_option->max_extra_invulnerable;
+
         options.center_agent = false;
 
         // 添加Boss实体

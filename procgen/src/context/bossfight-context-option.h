@@ -12,6 +12,9 @@ class BossfightContextOption {
     int player_bullet_vel; // The velocity of the player's bullet
     int bottom_margin;     // The bottom margin of barriers
 
+    float boss_bullet_vel; // The velocity of the boss's bullet
+    int max_extra_invulnerable;    // The max extra invulnerable time of the boss
+
     int boss_vel_timeout;    // The interval time of boss's velocity change
     int boss_damage_timeout; // The timeout of boss's round health decrease to 0
 

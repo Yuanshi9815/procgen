@@ -19,6 +19,9 @@ default_context_options = {
         "player_bullet_vel": 1,
         "bottom_margin": 6,
 
+        "boss_bullet_vel": .5,
+        "max_extra_invulnerable": 1,
+
         "boss_vel_timeout": 50,
         "boss_damage_timeout": 40,
 
