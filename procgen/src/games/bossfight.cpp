@@ -241,21 +241,21 @@ class BossfightGame : public BasicAbstractGame {
 
         attack_modes.clear();
 
+        int modes_num = 0;
+        int num_map[4] = {0, 0, 0, 0};
+        if (bossfight_context_option->enable_attack_mode_0) {
+            num_map[modes_num++] = 0;
+        }
+        if (bossfight_context_option->enable_attack_mode_1) {
+            num_map[modes_num++] = 1;
+        }
+        if (bossfight_context_option->enable_attack_mode_2) {
+            num_map[modes_num++] = 2;
+        }
+        if (bossfight_context_option->enable_attack_mode_3) {
+            num_map[modes_num++] = 3;
+        }
         for (int i = 0; i < num_rounds; i++) {
-            int modes_num = 0;
-            int num_map[4] = {0, 0, 0, 0};
-            if (bossfight_context_option->enable_attack_mode_0) {
-                num_map[modes_num++] = 0;
-            }
-            if (bossfight_context_option->enable_attack_mode_1) {
-                num_map[modes_num++] = 1;
-            }
-            if (bossfight_context_option->enable_attack_mode_2) {
-                num_map[modes_num++] = 2;
-            }
-            if (bossfight_context_option->enable_attack_mode_3) {
-                num_map[modes_num++] = 3;
-            }
             attack_modes.push_back(
                 num_map[rand_gen.randn(modes_num)]
             );
@@ -269,7 +269,7 @@ class BossfightGame : public BasicAbstractGame {
         reposition_agent();
         agent->y = agent->ry;
 
-        barrier_vel = 10.f;
+        barrier_vel = 0.1f;
         barriers_moves_right = rand_gen.randbool();
         barrier_spawn_prob = 0.025f;
 

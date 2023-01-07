@@ -22,7 +22,7 @@ default_context_options = {
         "boss_bullet_vel": .5,
         "max_extra_invulnerable": 1,
 
-        "boss_vel_timeout": 50,
+        "boss_vel_timeout": 20,
         "boss_damage_timeout": 40,
 
         "max_rounds_num": 5,
