@@ -118,7 +118,7 @@ class LeaperGame : public BasicAbstractGame {
     }
 
     int choose_extra_space() {
-        return options.distribution_mode == rand_gen.randn(leaper_context_option->max_extra_space + 1);
+        return rand_gen.randn(leaper_context_option->max_extra_space + 1);
     }
 
     void game_reset() override {
