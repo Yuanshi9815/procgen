@@ -134,7 +134,7 @@ class BaseProcgenEnv(CEnv):
             context_options = [{} for _ in range(num)]
         for context_option in context_options:
             new_context_options.append({**default_context_options[env_name], **context_option})
-
+        self.context_options = new_context_options
         super().__init__(
             lib_dir=lib_dir,
             num=num,
