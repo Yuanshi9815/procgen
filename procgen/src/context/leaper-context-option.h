@@ -7,7 +7,8 @@ private:
     /* data */
 public:
     // float start_r;
-    // int fish_interval;
+    int world_dim;
+
     float min_car_speed;
     float max_car_speed;
     float min_log_speed;

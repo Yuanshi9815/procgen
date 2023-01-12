@@ -12,6 +12,7 @@ LeaperContextOption::~LeaperContextOption()
 
 void LeaperContextOption::parse_options(VecOptions *opts)
 {
+    opts->consume_int("world_dim", &world_dim, true, 9);
     opts->consume_float("min_car_speed", &min_car_speed, true, 0.05f);
     opts->consume_float("max_car_speed", &max_car_speed, true, 0.2f);
     opts->consume_float("min_log_speed", &min_log_speed, true, 0.05f);

@@ -111,6 +111,8 @@ class LeaperGame : public BasicAbstractGame {
             world_dim = 15;
         }
 
+        world_dim = leaper_context_option->world_dim;
+
         main_width = world_dim;
         main_height = world_dim;
     }

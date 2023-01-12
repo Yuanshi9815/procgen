@@ -132,11 +132,16 @@ default_context_options = {
         "max_jump_count": 2,
     },
     "leaper": {
+        "world_dim": 9,
         "min_car_speed": .05,
         "max_car_speed": .2,
         "min_log_speed": .05,
         "max_log_speed": .1,
-        "min_log_gap": 0,
+        "max_extra_space": 0,
+        "max_road": 3,
+        "min_road": 0,
+        "max_log": 3,
+        "min_log": 0,
         "car_left_prob": .5,
     },
     "maze": {
