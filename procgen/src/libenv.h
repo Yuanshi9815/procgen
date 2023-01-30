@@ -176,6 +176,8 @@ LIBENV_API void libenv_set_buffers(libenv_env *handle, struct libenv_buffers *bu
 // if the episode is done, the `ob` value of the observation will be from the new episode
 LIBENV_API void libenv_observe(libenv_env *handle);
 
+LIBENV_API void libenv_set_context(libenv_env *handle, int env_id, const struct libenv_options context);
+
 // libenv_act submits an action to the environment that has already been put into the acts buffer
 // provided with libenv_set_buffers()
 //

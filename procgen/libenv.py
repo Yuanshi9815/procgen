@@ -407,3 +407,9 @@ class CEnv(Env):
 
     def __del__(self):
         self.close()
+
+    def set_context_to(self, env_idx, context):
+        c_context, self._options_keepalives = self._convert_options(
+            self._ffi, self._c_lib, context
+        )
+        self._c_lib.libenv_set_context(self._c_env, env_idx, c_context[0])

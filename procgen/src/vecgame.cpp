@@ -96,6 +96,12 @@ void libenv_observe(libenv_env *handle) {
     venv->observe();
 }
 
+void libenv_set_context(libenv_env *handle, int env_idx, const struct libenv_options options) {
+    auto venv = (VecGame *)(handle);
+    auto game = venv->games[env_idx];
+    game->parse_context_options(game->game_name, options);
+}
+
 void libenv_act(libenv_env *handle) {
     auto venv = (VecGame *)(handle);
     venv->act();
