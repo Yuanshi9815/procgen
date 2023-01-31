@@ -120,6 +120,7 @@ Game::~Game() {
     } else if (starpilot_context_option){
         delete starpilot_context_option;
     }
+    delete econtext_ptr;
 }
 
 void Game::parse_options(std::string name, VecOptions opts) {

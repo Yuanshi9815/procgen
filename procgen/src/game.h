@@ -120,6 +120,7 @@ class Game {
     std::vector<void *> info_bufs;
     float *reward_ptr = nullptr;
     uint8_t *first_ptr = nullptr;
+    libenv_options *econtext_ptr = nullptr;
 
     Game(std::string name);
     void step();

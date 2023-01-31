@@ -88,7 +88,8 @@ void libenv_set_buffers(libenv_env *handle, struct libenv_buffers *bufs) {
                            venv->observation_types.size());
     auto info =
         convert_bufs(bufs->info, venv->num_envs, venv->info_types.size());
-    venv->set_buffers(ac, ob, info, bufs->rew, bufs->first);
+    bufs->explicit_contexts = new struct libenv_options[venv->num_envs];
+    venv->set_buffers(ac, ob, info, bufs->rew, bufs->first, bufs);
 }
 
 void libenv_observe(libenv_env *handle) {
@@ -332,7 +333,6 @@ VecGame::VecGame(int _nenvs, VecOptions opts, VecOptions contexts[]) {
         games[n]->game_n = n;
         games[n]->is_waiting_for_step = false;
         games[n]->parse_options(name, opts);
-        games[n]->parse_context_options(name, contexts[n]);
         games[n]->info_name_to_offset = info_name_to_offset;
 
         // Auto-selected a fixed_asset_seed if one wasn't specified on
@@ -342,11 +342,12 @@ VecGame::VecGame(int _nenvs, VecOptions opts, VecOptions contexts[]) {
             games[n]->fixed_asset_seed = int(hashed);
         }
 
+        games[n]->parse_context_options(name, contexts[n]);
         games[n]->game_init();
     }
 }
 
-void VecGame::set_buffers(const std::vector<std::vector<void *>> &ac, const std::vector<std::vector<void *>> &ob, const std::vector<std::vector<void *>> &info, float *rew, uint8_t *first) {
+void VecGame::set_buffers(const std::vector<std::vector<void *>> &ac, const std::vector<std::vector<void *>> &ob, const std::vector<std::vector<void *>> &info, float *rew, uint8_t *first, struct libenv_buffers *bufs) {
     {
         std::unique_lock<std::mutex> lock(stepping_thread_mutex);
 
@@ -358,6 +359,7 @@ void VecGame::set_buffers(const std::vector<std::vector<void *>> &ac, const std:
             game->info_bufs = info[e];
             game->reward_ptr = &rew[e];
             game->first_ptr = &first[e];
+            game->econtext_ptr = &bufs->explicit_contexts[e];
             
             // render the initial state so we don't see a black screen on the first frame
             fassert(!game->is_waiting_for_step);

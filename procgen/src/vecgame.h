@@ -33,7 +33,7 @@ class VecGame {
     VecGame(int _nenvs, VecOptions opt_vec, VecOptions context_opt_vec[]);
     ~VecGame();
 
-    void set_buffers(const std::vector<std::vector<void *>> &ac, const std::vector<std::vector<void *>> &ob, const std::vector<std::vector<void *>> &info, float *rew, uint8_t *first);
+    void set_buffers(const std::vector<std::vector<void *>> &ac, const std::vector<std::vector<void *>> &ob, const std::vector<std::vector<void *>> &info, float *rew, uint8_t *first, struct libenv_buffers *bufs);
     void observe();
     void act();
     void wait_for_stepping_threads();

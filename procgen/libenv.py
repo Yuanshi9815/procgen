@@ -219,7 +219,7 @@ class CEnv(Env):
         # options_num = len(context_options[0])
         for i in range(env_num):
             c_options, keepalives_ = self._convert_options(ffi, c_lib, context_options[i])
-            keepalives.extend(keepalives_)
+            keepalives.append(keepalives_)
             c_contexts[i] = c_options[0]
         return c_contexts, keepalives
 
@@ -395,6 +395,7 @@ class CEnv(Env):
         self._c_lib = None
         self._ffi = None
         self._options_keepalives = None
+        self._contexts_keepalives = None
 
     def call_c_func(self, name: str, *args: Any) -> Any:
         """
@@ -409,7 +410,7 @@ class CEnv(Env):
         self.close()
 
     def set_context_to(self, env_idx, context):
-        c_context, self._options_keepalives = self._convert_options(
+        c_context, _ = self._convert_options(
             self._ffi, self._c_lib, context
         )
         self._c_lib.libenv_set_context(self._c_env, env_idx, c_context[0])

@@ -135,6 +135,7 @@ struct libenv_buffers {
     uint8_t *first;  // pointer to num_envs uint8s
     void **info;  // array of pointers with length len(info_space) * num_envs
     void **ac;  // array of pointers with length len(ac_space) * num_envs
+    struct libenv_options *explicit_contexts; // array of pointers with length len
 };
 
 #if !defined(NO_PROTOTYPE)
