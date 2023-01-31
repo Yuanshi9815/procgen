@@ -88,7 +88,7 @@ void libenv_set_buffers(libenv_env *handle, struct libenv_buffers *bufs) {
                            venv->observation_types.size());
     auto info =
         convert_bufs(bufs->info, venv->num_envs, venv->info_types.size());
-    bufs->explicit_contexts = new struct libenv_options[venv->num_envs];
+    bufs->explicit_contexts = new struct libenv_options*[venv->num_envs];
     venv->set_buffers(ac, ob, info, bufs->rew, bufs->first, bufs);
 }
 
@@ -100,7 +100,7 @@ void libenv_observe(libenv_env *handle) {
 void libenv_set_context(libenv_env *handle, int env_idx, const struct libenv_options options) {
     auto venv = (VecGame *)(handle);
     auto game = venv->games[env_idx];
-    game->parse_context_options(game->game_name, options);
+    game->parse_context_options(game->game_name, options, false);
 }
 
 void libenv_act(libenv_env *handle) {
@@ -359,7 +359,7 @@ void VecGame::set_buffers(const std::vector<std::vector<void *>> &ac, const std:
             game->info_bufs = info[e];
             game->reward_ptr = &rew[e];
             game->first_ptr = &first[e];
-            game->econtext_ptr = &bufs->explicit_contexts[e];
+            bufs->explicit_contexts[e] = &(game->e_context);
             
             // render the initial state so we don't see a black screen on the first frame
             fassert(!game->is_waiting_for_step);

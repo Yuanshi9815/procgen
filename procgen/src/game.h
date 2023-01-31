@@ -120,14 +120,14 @@ class Game {
     std::vector<void *> info_bufs;
     float *reward_ptr = nullptr;
     uint8_t *first_ptr = nullptr;
-    libenv_options *econtext_ptr = nullptr;
+    libenv_options e_context;
 
     Game(std::string name);
     void step();
     void reset();
     void render_to_buf(void *buf, int w, int h, bool antialias);
     void parse_options(std::string name, VecOptions opt_vec);
-    void parse_context_options(std::string name, VecOptions opt_vec);
+    void parse_context_options(std::string name, VecOptions opt_vec, bool init_e_context=true);
 
     virtual ~Game() = 0;
     virtual void observe();

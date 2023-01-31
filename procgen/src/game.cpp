@@ -120,7 +120,6 @@ Game::~Game() {
     } else if (starpilot_context_option){
         delete starpilot_context_option;
     }
-    delete econtext_ptr;
 }
 
 void Game::parse_options(std::string name, VecOptions opts) {
@@ -158,7 +157,7 @@ void Game::parse_options(std::string name, VecOptions opts) {
     opts.ensure_empty();
 }
 
-void Game::parse_context_options(std::string name, VecOptions opts){
+void Game::parse_context_options(std::string name, VecOptions opts, bool init_e_context) {
     if (name == "bigfish") {
         bigfish_context_option->parse_options(&opts);
     } else if (name == "bossfight") {
@@ -181,6 +180,7 @@ void Game::parse_context_options(std::string name, VecOptions opts){
         jumper_context_option->parse_options(&opts);
     } else if (name == "leaper") {
         leaper_context_option->parse_options(&opts);
+        if (init_e_context) leaper_context_option->init_episode_context(&e_context);
     } else if (name == "maze") {
         maze_context_option->parse_options(&opts);
     } else if (name == "miner") {

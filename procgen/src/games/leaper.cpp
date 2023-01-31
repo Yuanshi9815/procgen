@@ -191,6 +191,9 @@ class LeaperGame : public BasicAbstractGame {
         }
 
         add_entity_rxy(main_width / 2.0, goal_y - .5, 0, 0, main_width / 2.0, .5, FINISH_LINE);
+        
+        ((int32_t *)e_context.items[0].data)[0] = (int32_t)num_road_lanes;
+        ((int32_t *)e_context.items[1].data)[0] = (int32_t)num_water_lanes;
     }
 
     void spawn_entities() {
