@@ -32,6 +32,9 @@ class LeaperGame : public BasicAbstractGame {
     std::vector<float> water_lane_speeds;
     int goal_y = 0;
 
+    int num_road_lanes;
+    int num_water_lanes;
+
     LeaperGame()
         : BasicAbstractGame(NAME) {
         maxspeed = MAX_SPEED;
@@ -160,7 +163,7 @@ class LeaperGame : public BasicAbstractGame {
         int extra_lane_option = options.distribution_mode == EasyMode ? 0 : rand_gen.randn(4);
 
         int extra_road = leaper_context_option->max_road - leaper_context_option->min_road;
-        int num_road_lanes = leaper_context_option->min_road + rand_gen.randn(extra_road + 1);
+        num_road_lanes = leaper_context_option->min_road + rand_gen.randn(extra_road + 1);
         road_lane_speeds.clear();
         for (int lane = 0; lane < num_road_lanes; lane++) {
             road_lane_speeds.push_back(rand_sign() * rand_gen.randrange(min_car_speed, max_car_speed));
@@ -174,7 +177,7 @@ class LeaperGame : public BasicAbstractGame {
 
         water_lane_speeds.clear();
         int extra_water = leaper_context_option->max_log - leaper_context_option->min_log;
-        int num_water_lanes = leaper_context_option->min_log + rand_gen.randn(extra_water + 1);
+        num_water_lanes = leaper_context_option->min_log + rand_gen.randn(extra_water + 1);
         int curr_sign = rand_sign();
         for (int lane = 0; lane < num_water_lanes; lane++) {
             water_lane_speeds.push_back(curr_sign * rand_gen.randrange(min_log_speed, max_log_speed));
@@ -191,9 +194,6 @@ class LeaperGame : public BasicAbstractGame {
         }
 
         add_entity_rxy(main_width / 2.0, goal_y - .5, 0, 0, main_width / 2.0, .5, FINISH_LINE);
-        
-        ((int32_t *)e_context.items[0].data)[0] = (int32_t)num_road_lanes;
-        ((int32_t *)e_context.items[1].data)[0] = (int32_t)num_water_lanes;
     }
 
     void spawn_entities() {
@@ -262,6 +262,10 @@ class LeaperGame : public BasicAbstractGame {
     }
 
     void game_step() override {
+
+        ((int32_t *)e_context.items[0].data)[0] = (int32_t)num_road_lanes;
+        ((int32_t *)e_context.items[1].data)[0] = (int32_t)num_water_lanes;
+
         if (agent->image_theme >= 1) {
             agent->image_theme = (agent->image_theme + 1) % FROG_ANIMATION_FRAMES;
         }
