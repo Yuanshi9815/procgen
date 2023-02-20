@@ -397,7 +397,6 @@ class CEnv(Env):
                 elif context.dtype == 3:
                     value = self._ffi.cast("float *", context.data)[0]
                 infos[env_idx]["episode_context"][key] = value
-        print([info["episode_context"] for info in infos])
         return infos
 
     def close(self) -> None:
