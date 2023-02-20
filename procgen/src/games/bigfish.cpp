@@ -60,6 +60,7 @@ class BigFish : public BasicAbstractGame {
     }
 
     void game_reset() override {
+        bigfish_context_option->copy_options((BigfishContextOption*)assigned_context_option);
         BasicAbstractGame::game_reset();
 
         options.center_agent = false;

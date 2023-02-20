@@ -26,3 +26,17 @@ void BigfishContextOption::parse_options(VecOptions *opts)
     opts->consume_float("min_speed", &min_speed, true, .15);
     opts->consume_float("max_speed", &max_speed, true, .4);
 }
+
+void BigfishContextOption::copy_options(BigfishContextOption *opts)
+{
+    start_r = opts->start_r;
+    fish_prob = opts->fish_prob;
+    completion_bonus = opts->completion_bonus;
+    positive_reward = opts->positive_reward;
+    fish_min_r = opts->fish_min_r;
+    fish_max_r = opts->fish_max_r;
+    fish_quota = opts->fish_quota;
+    from_left_prob = opts->from_left_prob;
+    min_speed = opts->min_speed;
+    max_speed = opts->max_speed;
+}

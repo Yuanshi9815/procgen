@@ -26,4 +26,5 @@ public:
     BigfishContextOption(/* args */);
     ~BigfishContextOption();
     void parse_options(VecOptions *opts);
+    void copy_options(BigfishContextOption *opts);
 };

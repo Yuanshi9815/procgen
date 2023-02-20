@@ -138,6 +138,7 @@ class Game {
     virtual void serialize(WriteBuffer *b);
     virtual void deserialize(ReadBuffer *b);
 
+    void *assigned_context_option = nullptr;
     BigfishContextOption *bigfish_context_option = nullptr;
     BossfightContextOption *bossfight_context_option = nullptr;
     CaveflyerContextOption *caveflyer_context_option = nullptr;
