@@ -24,12 +24,12 @@ void ChaserContextOption::parse_options(VecOptions *opts)
 
 void ChaserContextOption::copy_options(ChaserContextOption *opts)
 {
-    opts->maze_dim = opts->maze_dim;
-    opts->total_enemies = opts->total_enemies;
+    maze_dim = opts->maze_dim;
+    total_enemies = opts->total_enemies;
     // opts->extra_orb_sign = opts->extra_orb_sign;
 
-    opts->eat_time = opts->eat_time;
-    opts->egg_time = opts->egg_time;
+    eat_time = opts->eat_time;
+    egg_time = opts->egg_time;
 
-    opts->total_orbs = opts->total_orbs;
+    total_orbs = opts->total_orbs;
 }

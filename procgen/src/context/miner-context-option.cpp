@@ -15,7 +15,7 @@ void MinerContextOption::parse_options(VecOptions *opts) {
 }
 
 void MinerContextOption::copy_options(MinerContextOption *opts) {
-    opts->world_dim = opts->world_dim;
-    opts->diamond_pct = opts->diamond_pct;
-    opts->boulder_pct = opts->boulder_pct;
+    world_dim = opts->world_dim;
+    diamond_pct = opts->diamond_pct;
+    boulder_pct = opts->boulder_pct;
 }

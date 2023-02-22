@@ -25,16 +25,16 @@ void FruitbotContextOption::parse_options(VecOptions *opts) {
 
 void FruitbotContextOption::copy_options(FruitbotContextOption *opts) {
     // opts->start_r = opts->start_r;
-    opts->main_width = opts->main_width;
-    opts->main_height = opts->main_height;
-    opts->min_sep = opts->min_sep;
-    opts->num_walls = opts->num_walls;
-    opts->object_group_size = opts->object_group_size;
-    opts->buf_h = opts->buf_h;
-    opts->door_prob = opts->door_prob;
-    opts->min_pct = opts->min_pct;
-    opts->min_fruits = opts->min_fruits;
-    opts->max_fruits = opts->max_fruits;
-    opts->min_foods = opts->min_foods;
-    opts->max_foods = opts->max_foods;
+    main_width = opts->main_width;
+    main_height = opts->main_height;
+    min_sep = opts->min_sep;
+    num_walls = opts->num_walls;
+    object_group_size = opts->object_group_size;
+    buf_h = opts->buf_h;
+    door_prob = opts->door_prob;
+    min_pct = opts->min_pct;
+    min_fruits = opts->min_fruits;
+    max_fruits = opts->max_fruits;
+    min_foods = opts->min_foods;
+    max_foods = opts->max_foods;
 }

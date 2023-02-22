@@ -19,7 +19,7 @@ void MazeContextOption::parse_options(VecOptions *opts)
 
 void MazeContextOption::copy_options(MazeContextOption *opts)
 {
-    opts->world_dim = opts->world_dim;
-    opts->min_maze_dim = opts->min_maze_dim;
-    opts->max_maze_dim = opts->max_maze_dim;
+    world_dim = opts->world_dim;
+    min_maze_dim = opts->min_maze_dim;
+    max_maze_dim = opts->max_maze_dim;
 }

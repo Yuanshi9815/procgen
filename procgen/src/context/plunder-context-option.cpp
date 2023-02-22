@@ -28,16 +28,16 @@ void PlunderContextOption::parse_options(VecOptions *opts)
 
 void PlunderContextOption::copy_options(PlunderContextOption *opts)
 {
-    opts->target_time_reward = opts->target_time_reward;
-    opts->target_time_penalty = opts->target_time_penalty;
-    opts->step_time_penalty = opts->step_time_penalty;
-    opts->fire_time_penalty = opts->fire_time_penalty;
-    opts->target_quota = opts->target_quota;
-    opts->spawn_prob = opts->spawn_prob;
-    opts->num_lanes = opts->num_lanes;
-    opts->r_scale = opts->r_scale;
-    opts->left_prob = opts->left_prob;
-    opts->enemy_prob = opts->enemy_prob;
-    opts->max_speed = opts->max_speed;
-    opts->min_speed = opts->min_speed;
+    target_time_reward = opts->target_time_reward;
+    target_time_penalty = opts->target_time_penalty;
+    step_time_penalty = opts->step_time_penalty;
+    fire_time_penalty = opts->fire_time_penalty;
+    target_quota = opts->target_quota;
+    spawn_prob = opts->spawn_prob;
+    num_lanes = opts->num_lanes;
+    r_scale = opts->r_scale;
+    left_prob = opts->left_prob;
+    enemy_prob = opts->enemy_prob;
+    max_speed = opts->max_speed;
+    min_speed = opts->min_speed;
 }

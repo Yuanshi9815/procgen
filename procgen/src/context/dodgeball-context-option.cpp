@@ -38,22 +38,22 @@ void DodgeballContextOption::parse_options(VecOptions *opts)
 void DodgeballContextOption::copy_options(DodgeballContextOption *opts)
 {
     // opts->start_r = opts->start_r;
-    opts->world_dim = opts->world_dim;
-    opts->fire_interval = opts->fire_interval;
-    opts->thickness = opts->thickness;
-    opts->enemy_r = opts->enemy_r;
-    opts->ball_r = opts->ball_r;
-    opts->ball_vscale = opts->ball_vscale;
-    opts->maxspeed = opts->maxspeed;
-    opts->exit_r = opts->exit_r;
-    opts->enemy_speed = opts->enemy_speed;
-    opts->enemy_reward = opts->enemy_reward;
-    opts->num_iterations = opts->num_iterations;
-    opts->allow_left_exit = opts->allow_left_exit;
-    opts->allow_right_exit = opts->allow_right_exit;
-    opts->allow_top_exit = opts->allow_top_exit;
-    opts->allow_bottom_exit = opts->allow_bottom_exit;
+    world_dim = opts->world_dim;
+    fire_interval = opts->fire_interval;
+    thickness = opts->thickness;
+    enemy_r = opts->enemy_r;
+    ball_r = opts->ball_r;
+    ball_vscale = opts->ball_vscale;
+    maxspeed = opts->maxspeed;
+    exit_r = opts->exit_r;
+    enemy_speed = opts->enemy_speed;
+    enemy_reward = opts->enemy_reward;
+    num_iterations = opts->num_iterations;
+    allow_left_exit = opts->allow_left_exit;
+    allow_right_exit = opts->allow_right_exit;
+    allow_top_exit = opts->allow_top_exit;
+    allow_bottom_exit = opts->allow_bottom_exit;
 
-    opts->max_extra_enemies = opts->max_extra_enemies;
-    opts->base_num_enemies = opts->base_num_enemies;
+    max_extra_enemies = opts->max_extra_enemies;
+    base_num_enemies = opts->base_num_enemies;
 }

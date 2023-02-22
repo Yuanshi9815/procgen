@@ -20,13 +20,13 @@ void NinjaContextOption::parse_options(VecOptions *opts) {
 }
 
 void NinjaContextOption::copy_options(NinjaContextOption *opts) {
-    opts->gravity = opts->gravity;
-    opts->max_jump = opts->max_jump;
-    opts->jump_charge_inc = opts->jump_charge_inc;
-    opts->air_control = opts->air_control;
-    opts->maxspeed = opts->maxspeed;
-    opts->visibility = opts->visibility;
-    opts->bomb_prob = opts->bomb_prob;
-    opts->max_num_sections = opts->max_num_sections;
-    opts->max_gap_inc = opts->max_gap_inc;
+    gravity = opts->gravity;
+    max_jump = opts->max_jump;
+    jump_charge_inc = opts->jump_charge_inc;
+    air_control = opts->air_control;
+    maxspeed = opts->maxspeed;
+    visibility = opts->visibility;
+    bomb_prob = opts->bomb_prob;
+    max_num_sections = opts->max_num_sections;
+    max_gap_inc = opts->max_gap_inc;
 }

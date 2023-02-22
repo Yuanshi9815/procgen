@@ -24,11 +24,11 @@ void HeistContextOption::parse_options(VecOptions *opts)
 void HeistContextOption::copy_options(HeistContextOption *opts)
 {
     // opts->start_r = opts->start_r;
-    opts->world_dim = opts->world_dim;
-    opts->max_maze_dim = opts->max_maze_dim;
-    opts->min_maze_dim = opts->min_maze_dim;
-    opts->min_keys = opts->min_keys;
-    opts->max_keys = opts->max_keys;
+    world_dim = opts->world_dim;
+    max_maze_dim = opts->max_maze_dim;
+    min_maze_dim = opts->min_maze_dim;
+    min_keys = opts->min_keys;
+    max_keys = opts->max_keys;
 }
 
 void HeistContextOption::init_episode_context(struct libenv_options *e_context)

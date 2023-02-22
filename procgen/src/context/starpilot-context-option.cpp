@@ -28,15 +28,15 @@ void StarpilotContextOption::parse_options(VecOptions *opts)
 
 void StarpilotContextOption::copy_options(StarpilotContextOption *opts)
 {
-    opts->maxspeed = opts->maxspeed;
-    opts->max_group_size = opts->max_group_size;
-    opts->can_spawn_left = opts->can_spawn_left;
-    opts->left_prob = opts->left_prob;
-    opts->min_enemy_delta_t = opts->min_enemy_delta_t;
-    opts->max_enemy_delta_t = opts->max_enemy_delta_t;
-    opts->flyer_prob_weight = opts->flyer_prob_weight;
-    opts->meteor_prob_weight = opts->meteor_prob_weight;
-    opts->cloud_prob_weight = opts->cloud_prob_weight;
-    opts->turret_prob_weight = opts->turret_prob_weight;
-    opts->fastflyer_prob_weight = opts->fastflyer_prob_weight;
+    maxspeed = opts->maxspeed;
+    max_group_size = opts->max_group_size;
+    can_spawn_left = opts->can_spawn_left;
+    left_prob = opts->left_prob;
+    min_enemy_delta_t = opts->min_enemy_delta_t;
+    max_enemy_delta_t = opts->max_enemy_delta_t;
+    flyer_prob_weight = opts->flyer_prob_weight;
+    meteor_prob_weight = opts->meteor_prob_weight;
+    cloud_prob_weight = opts->cloud_prob_weight;
+    turret_prob_weight = opts->turret_prob_weight;
+    fastflyer_prob_weight = opts->fastflyer_prob_weight;
 }

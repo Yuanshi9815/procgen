@@ -25,13 +25,13 @@ void CaveflyerContextOption::parse_options(VecOptions *opts)
 
 void CaveflyerContextOption::copy_options(CaveflyerContextOption *opts)
 {
-    opts->world_dim = opts->world_dim;
-    opts->objects_factor = opts->objects_factor;
+    world_dim = opts->world_dim;
+    objects_factor = opts->objects_factor;
 
-    opts->enable_obstacle = opts->enable_obstacle;
-    opts->enable_target = opts->enable_target;
-    opts->enable_enemy = opts->enable_enemy;
+    enable_obstacle = opts->enable_obstacle;
+    enable_target = opts->enable_target;
+    enable_enemy = opts->enable_enemy;
 
-    opts->enemy_v_fast = opts->enemy_v_fast;
-    opts->enemy_v_slow = opts->enemy_v_slow;
+    enemy_v_fast = opts->enemy_v_fast;
+    enemy_v_slow = opts->enemy_v_slow;
 }

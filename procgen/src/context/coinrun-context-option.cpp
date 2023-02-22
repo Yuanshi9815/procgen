@@ -28,16 +28,16 @@ void CoinrunContextOption::parse_options(VecOptions *opts)
 
 void CoinrunContextOption::copy_options(CoinrunContextOption *opts)
 {
-    opts->visibility = opts->visibility;
-    opts->maxspeed = opts->maxspeed;
-    opts->main_width = opts->main_width;
-    opts->main_height = opts->main_height;
-    opts->allow_pit = opts->allow_pit;
-    opts->allow_crate = opts->allow_crate;
-    opts->unenven_ground = opts->unenven_ground;
-    opts->allow_lava = opts->allow_lava;
-    opts->allow_saw = opts->allow_saw;
-    opts->allow_monsters = opts->allow_monsters;
-    opts->min_crate_height = opts->min_crate_height;
-    opts->max_crate_height = opts->max_crate_height;
+    visibility = opts->visibility;
+    maxspeed = opts->maxspeed;
+    main_width = opts->main_width;
+    main_height = opts->main_height;
+    allow_pit = opts->allow_pit;
+    allow_crate = opts->allow_crate;
+    unenven_ground = opts->unenven_ground;
+    allow_lava = opts->allow_lava;
+    allow_saw = opts->allow_saw;
+    allow_monsters = opts->allow_monsters;
+    min_crate_height = opts->min_crate_height;
+    max_crate_height = opts->max_crate_height;
 }

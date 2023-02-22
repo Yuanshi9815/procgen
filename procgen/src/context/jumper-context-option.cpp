@@ -16,9 +16,9 @@ void JumperContextOption::parse_options(VecOptions *opts) {
 }
 
 void JumperContextOption::copy_options(JumperContextOption *opts) {
-    opts->world_dim = opts->world_dim;
-    opts->visibility = opts->visibility;
-    opts->compass_dim = opts->compass_dim;
-    opts->jump_cooldown = opts->jump_cooldown;
-    opts->max_jump_count = opts->max_jump_count;
+    world_dim = opts->world_dim;
+    visibility = opts->visibility;
+    compass_dim = opts->compass_dim;
+    jump_cooldown = opts->jump_cooldown;
+    max_jump_count = opts->max_jump_count;
 }
