@@ -201,6 +201,7 @@ class BossfightGame : public BasicAbstractGame {
     }
 
     void game_reset() override {
+        bossfight_context_option->copy_options((BossfightContextOption *)assigned_context_option);
         BasicAbstractGame::game_reset();
 
         damaged_until_time = 0;

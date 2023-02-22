@@ -37,3 +37,33 @@ void BossfightContextOption::parse_options(VecOptions *opts) {
     opts->consume_int("max_barriers_num", &max_barriers_num, true, 3);
     opts->consume_int("min_barriers_num", &min_barriers_num, true, 1);
 }
+
+void BossfightContextOption::copy_options(BossfightContextOption *opts){
+    opts->completion_bonus = opts->completion_bonus;
+    opts->positive_reward = opts->positive_reward;
+
+    opts->boss_r = opts->boss_r;
+    opts->player_bullet_vel = opts->player_bullet_vel;
+    opts->bottom_margin = opts->bottom_margin;
+
+    opts->boss_bullet_vel = opts->boss_bullet_vel;
+    opts->max_extra_invulnerable = opts->max_extra_invulnerable;
+
+    opts->boss_vel_timeout = opts->boss_vel_timeout;
+    opts->boss_damage_timeout = opts->boss_damage_timeout;
+
+    opts->max_rounds_num = opts->max_rounds_num;
+    opts->min_rounds_num = opts->min_rounds_num;
+    opts->max_round_health = opts->max_round_health;
+    opts->min_round_health = opts->min_round_health;
+
+    opts->enable_attack_mode_0 = opts->enable_attack_mode_0;
+    opts->enable_attack_mode_1 = opts->enable_attack_mode_1;
+    opts->enable_attack_mode_2 = opts->enable_attack_mode_2;
+    opts->enable_attack_mode_3 = opts->enable_attack_mode_3;
+
+    opts->enable_shield = opts->enable_shield;
+
+    opts->max_barriers_num = opts->max_barriers_num;
+    opts->min_barriers_num = opts->min_barriers_num;
+}
