@@ -138,6 +138,9 @@ class ChaserGame : public BasicAbstractGame {
     }
 
     void game_reset() override {
+        // copy assigned_context_option to context_option
+        // e.g. chaser_context_option->copy_options((ChaserContextOption *) assigned_context_option);
+        chaser_context_option->copy_options((ChaserContextOption *) assigned_context_option);
         eat_timeout = chaser_context_option->eat_time;
         egg_timeout = chaser_context_option->egg_time;
 

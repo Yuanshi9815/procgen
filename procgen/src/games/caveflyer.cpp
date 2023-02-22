@@ -145,6 +145,8 @@ class CaveFlyerGame : public BasicAbstractGame {
     }
 
     void game_reset() override {
+        // copy assigned_context_option to context_option
+        caveflyer_context_option->copy_options((CaveflyerContextOption *)assigned_context_option);
         BasicAbstractGame::game_reset();
 
         out_of_bounds_object = WALL_OBJ;

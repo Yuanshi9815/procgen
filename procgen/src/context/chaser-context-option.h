@@ -18,4 +18,5 @@ public:
     ChaserContextOption(/* args */);
     ~ChaserContextOption();
     void parse_options(VecOptions *opts);
+    void copy_options(ChaserContextOption *opts);
 };

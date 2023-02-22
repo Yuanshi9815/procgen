@@ -21,4 +21,5 @@ public:
     CaveflyerContextOption(/* args */);
     ~CaveflyerContextOption();
     void parse_options(VecOptions *opts);
+    void copy_options(CaveflyerContextOption *opts);
 };

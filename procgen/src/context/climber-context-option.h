@@ -28,4 +28,5 @@ public:
     ClimberContextOption(/* args */);
     ~ClimberContextOption();
     void parse_options(VecOptions *opts);
+    void copy_options(ClimberContextOption *opts);
 };

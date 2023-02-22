@@ -27,3 +27,21 @@ void ClimberContextOption::parse_options(VecOptions *opts)
     // opts->consume_float("start_r", &start_r);
     // opts->consume_int("fish_interval", &fish_interval);
 }
+
+void ClimberContextOption::copy_options(ClimberContextOption *opts)
+{
+    opts->gravity = opts->gravity;
+    opts->max_jump = opts->max_jump;
+    opts->air_control = opts->air_control;
+    opts->maxspeed = opts->maxspeed;
+    opts->min_platforms = opts->min_platforms;
+    opts->max_platforms = opts->max_platforms;
+    opts->enemy_prob = opts->enemy_prob;
+    opts->coin_prob = opts->coin_prob;
+    opts->max_plat_len = opts->max_plat_len;
+    opts->min_plat_len = opts->min_plat_len;
+    opts->world_width = opts->world_width;
+    opts->margin_bottom = opts->margin_bottom;
+    // opts->start_r = opts->start_r;
+    // opts->fish_interval = opts->fish_interval;
+}
