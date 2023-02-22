@@ -120,6 +120,7 @@ default_context_options = {
     },
     "heist": {
         "world_dim": 9,
+        "max_maze_dim": 9,
         "min_maze_dim": 3,
         "min_keys": 1,
         "max_keys": 3,

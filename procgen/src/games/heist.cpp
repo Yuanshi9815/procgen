@@ -145,6 +145,7 @@ class HeistGame : public BasicAbstractGame {
         }
 
         int maze_dim = difficulty * 2 + min_maze_dim;
+        maze_dim = maze_dim > heist_context_option->max_maze_dim ? heist_context_option->max_maze_dim : maze_dim;
         float maze_scale = main_height / (world_dim * 1.0);
 
         agent->rx = .375 * maze_scale;
@@ -208,6 +209,9 @@ class HeistGame : public BasicAbstractGame {
             ent->use_abs_coords = true;
             match_aspect_ratio(ent);
         }
+
+        ((int32_t *)e_context.items[0].data)[0] = maze_dim;
+        ((int32_t *)e_context.items[1].data)[0] = num_keys;
     }
 
     void game_step() override {
