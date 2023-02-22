@@ -22,3 +22,19 @@ void FruitbotContextOption::parse_options(VecOptions *opts) {
     opts->consume_int("min_foods", &min_foods, true, 10);
     opts->consume_int("max_foods", &max_foods, true, 19);
 }
+
+void FruitbotContextOption::copy_options(FruitbotContextOption *opts) {
+    // opts->start_r = opts->start_r;
+    opts->main_width = opts->main_width;
+    opts->main_height = opts->main_height;
+    opts->min_sep = opts->min_sep;
+    opts->num_walls = opts->num_walls;
+    opts->object_group_size = opts->object_group_size;
+    opts->buf_h = opts->buf_h;
+    opts->door_prob = opts->door_prob;
+    opts->min_pct = opts->min_pct;
+    opts->min_fruits = opts->min_fruits;
+    opts->max_fruits = opts->max_fruits;
+    opts->min_foods = opts->min_foods;
+    opts->max_foods = opts->max_foods;
+}

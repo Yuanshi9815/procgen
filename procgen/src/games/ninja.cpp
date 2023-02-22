@@ -309,6 +309,9 @@ class Ninja : public BasicAbstractGame {
     }
 
     void game_reset() override {
+        // copy assigned_context_option to context_option
+        // e.g. chaser_context_option->copy_options((ChaserContextOption *) assigned_context_option);
+        ninja_context_option->copy_options((NinjaContextOption *) assigned_context_option);
         BasicAbstractGame::game_reset();
 
         gravity = 0.2f;

@@ -33,3 +33,27 @@ void DodgeballContextOption::parse_options(VecOptions *opts)
     opts->consume_int("base_num_enemies", &base_num_enemies, true, 3); // The number of base enemies. The sum of base_num_enemies and max_extra_enemies is the number of all enemies
 
 }
+
+
+void DodgeballContextOption::copy_options(DodgeballContextOption *opts)
+{
+    // opts->start_r = opts->start_r;
+    opts->world_dim = opts->world_dim;
+    opts->fire_interval = opts->fire_interval;
+    opts->thickness = opts->thickness;
+    opts->enemy_r = opts->enemy_r;
+    opts->ball_r = opts->ball_r;
+    opts->ball_vscale = opts->ball_vscale;
+    opts->maxspeed = opts->maxspeed;
+    opts->exit_r = opts->exit_r;
+    opts->enemy_speed = opts->enemy_speed;
+    opts->enemy_reward = opts->enemy_reward;
+    opts->num_iterations = opts->num_iterations;
+    opts->allow_left_exit = opts->allow_left_exit;
+    opts->allow_right_exit = opts->allow_right_exit;
+    opts->allow_top_exit = opts->allow_top_exit;
+    opts->allow_bottom_exit = opts->allow_bottom_exit;
+
+    opts->max_extra_enemies = opts->max_extra_enemies;
+    opts->base_num_enemies = opts->base_num_enemies;
+}

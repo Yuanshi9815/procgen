@@ -25,3 +25,19 @@ void PlunderContextOption::parse_options(VecOptions *opts)
     opts->consume_float("max_speed", &max_speed, true, 0.15);
     opts->consume_float("min_speed", &min_speed, true, 0.25);
 }
+
+void PlunderContextOption::copy_options(PlunderContextOption *opts)
+{
+    opts->target_time_reward = opts->target_time_reward;
+    opts->target_time_penalty = opts->target_time_penalty;
+    opts->step_time_penalty = opts->step_time_penalty;
+    opts->fire_time_penalty = opts->fire_time_penalty;
+    opts->target_quota = opts->target_quota;
+    opts->spawn_prob = opts->spawn_prob;
+    opts->num_lanes = opts->num_lanes;
+    opts->r_scale = opts->r_scale;
+    opts->left_prob = opts->left_prob;
+    opts->enemy_prob = opts->enemy_prob;
+    opts->max_speed = opts->max_speed;
+    opts->min_speed = opts->min_speed;
+}

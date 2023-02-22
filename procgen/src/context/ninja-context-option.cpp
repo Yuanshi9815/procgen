@@ -18,3 +18,15 @@ void NinjaContextOption::parse_options(VecOptions *opts) {
     opts->consume_int("max_num_sections", &max_num_sections, true, 6);
     opts->consume_int("max_gap_inc", &max_gap_inc, true, 1);
 }
+
+void NinjaContextOption::copy_options(NinjaContextOption *opts) {
+    opts->gravity = opts->gravity;
+    opts->max_jump = opts->max_jump;
+    opts->jump_charge_inc = opts->jump_charge_inc;
+    opts->air_control = opts->air_control;
+    opts->maxspeed = opts->maxspeed;
+    opts->visibility = opts->visibility;
+    opts->bomb_prob = opts->bomb_prob;
+    opts->max_num_sections = opts->max_num_sections;
+    opts->max_gap_inc = opts->max_gap_inc;
+}

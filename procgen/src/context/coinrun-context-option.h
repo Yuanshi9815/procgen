@@ -25,4 +25,5 @@ public:
     CoinrunContextOption(/* args */);
     ~CoinrunContextOption();
     void parse_options(VecOptions *opts);
+    void copy_options(CoinrunContextOption *opts);
 };

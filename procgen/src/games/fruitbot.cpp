@@ -195,6 +195,9 @@ class FruitBotGame : public BasicAbstractGame {
     }
 
     void game_reset() override {
+        // copy assigned_context_option to context_option
+        // e.g. chaser_context_option->copy_options((ChaserContextOption *) assigned_context_option);
+        fruitbot_context_option->copy_options((FruitbotContextOption *) assigned_context_option);
         BasicAbstractGame::game_reset();
 
         last_fire_time = 0;

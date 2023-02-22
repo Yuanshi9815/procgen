@@ -15,4 +15,5 @@ public:
     HeistContextOption(/* args */);
     ~HeistContextOption();
     void parse_options(VecOptions *opts);
+    void copy_options(HeistContextOption *opts);
 };

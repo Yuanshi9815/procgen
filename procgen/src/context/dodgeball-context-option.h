@@ -34,4 +34,5 @@ public:
     DodgeballContextOption(/* args */);
     ~DodgeballContextOption();
     void parse_options(VecOptions *opts);
+    void copy_options(DodgeballContextOption *opts);
 };

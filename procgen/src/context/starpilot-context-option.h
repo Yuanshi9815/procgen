@@ -23,4 +23,5 @@ public:
     StarpilotContextOption(/* args */);
     ~StarpilotContextOption();
     void parse_options(VecOptions *opts);
+    void copy_options(StarpilotContextOption *opts);
 };

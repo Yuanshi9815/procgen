@@ -37,3 +37,18 @@ void LeaperContextOption::init_episode_context(struct libenv_options *e_context)
     e_context->items[1].count = 1;
     e_context->items[1].data = new int32_t[1];
 }
+
+
+void LeaperContextOption::copy_options(LeaperContextOption *opts) {
+    opts->world_dim = opts->world_dim;
+    opts->min_car_speed = opts->min_car_speed;
+    opts->max_car_speed = opts->max_car_speed;
+    opts->min_log_speed = opts->min_log_speed;
+    opts->max_log_speed = opts->max_log_speed;
+    opts->max_extra_space = opts->max_extra_space;
+    opts->max_road = opts->max_road;
+    opts->min_road = opts->min_road;
+    opts->max_log = opts->max_log;
+    opts->min_log = opts->min_log;
+    opts->car_left_prob = opts->car_left_prob;
+}

@@ -19,4 +19,5 @@ public:
     NinjaContextOption(/* args */);
     ~NinjaContextOption();
     void parse_options(VecOptions *opts);
+    void copy_options(NinjaContextOption *opts);
 };

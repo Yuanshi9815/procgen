@@ -13,3 +13,9 @@ void MinerContextOption::parse_options(VecOptions *opts) {
     opts->consume_float("diamond_pct", &diamond_pct, true, 12 / 400.);
     opts->consume_float("boulder_pct", &boulder_pct, true, 80 / 400.);
 }
+
+void MinerContextOption::copy_options(MinerContextOption *opts) {
+    opts->world_dim = opts->world_dim;
+    opts->diamond_pct = opts->diamond_pct;
+    opts->boulder_pct = opts->boulder_pct;
+}

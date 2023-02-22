@@ -125,6 +125,9 @@ class LeaperGame : public BasicAbstractGame {
     }
 
     void game_reset() override {
+        // copy assigned_context_option to context_option
+        // e.g. chaser_context_option->copy_options((ChaserContextOption *) assigned_context_option);
+        leaper_context_option->copy_options((LeaperContextOption *) assigned_context_option);
         BasicAbstractGame::game_reset();
 
         options.center_agent = false;

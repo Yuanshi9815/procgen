@@ -18,3 +18,12 @@ void HeistContextOption::parse_options(VecOptions *opts)
     opts->consume_int("min_keys", &min_keys, true, 1);
     opts->consume_int("max_keys", &max_keys, true, 3);  // 3 is the max number of keys in the original game. [1, 3]
 }
+
+void HeistContextOption::copy_options(HeistContextOption *opts)
+{
+    // opts->start_r = opts->start_r;
+    opts->world_dim = opts->world_dim;
+    opts->min_maze_dim = opts->min_maze_dim;
+    opts->min_keys = opts->min_keys;
+    opts->max_keys = opts->max_keys;
+}

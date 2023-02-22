@@ -15,4 +15,5 @@ public:
     JumperContextOption(/* args */);
     ~JumperContextOption();
     void parse_options(VecOptions *opts);
+    void copy_options(JumperContextOption *opts);
 };

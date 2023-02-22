@@ -12,4 +12,5 @@ class MinerContextOption {
     MinerContextOption(/* args */);
     ~MinerContextOption();
     void parse_options(VecOptions *opts);
+    void copy_options(MinerContextOption *opts);
 };
