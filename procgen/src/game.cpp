@@ -208,6 +208,7 @@ void Game::parse_context_options(std::string name, VecOptions opts, bool init_e_
         ((FruitbotContextOption*)assigned_context_option)->parse_options(&opts);
     } else if (name == "heist") {
         ((HeistContextOption*)assigned_context_option)->parse_options(&opts);
+        if (init_e_context) heist_context_option->init_episode_context(&e_context);
     } else if (name == "jumper") {
         ((JumperContextOption*)assigned_context_option)->parse_options(&opts);
     } else if (name == "leaper") {
