@@ -1,6 +1,6 @@
 #include "bossfight-context-option.h"
 #include "../cpp-utils.h"
-#include <iostream>
+#include "string.h"
 
 BossfightContextOption::BossfightContextOption(/* args */) {
 }
@@ -66,4 +66,20 @@ void BossfightContextOption::copy_options(BossfightContextOption *opts){
 
     max_barriers_num = opts->max_barriers_num;
     min_barriers_num = opts->min_barriers_num;
+}
+
+void BossfightContextOption::init_episode_context(struct libenv_options *e_context){
+    int count_num = 2;
+    e_context->count = count_num;
+    e_context->items = new struct libenv_option[count_num];
+
+    strcpy(e_context->items[0].name, "round_health");
+    e_context->items[0].dtype = LIBENV_DTYPE_INT32;
+    e_context->items[0].count = 1;
+    e_context->items[0].data = new int32_t[1];
+
+    strcpy(e_context->items[1].name, "num_rounds");
+    e_context->items[1].dtype = LIBENV_DTYPE_INT32;
+    e_context->items[1].count = 1;
+    e_context->items[1].data = new int32_t[1];
 }

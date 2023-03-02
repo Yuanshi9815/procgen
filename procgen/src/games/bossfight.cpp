@@ -280,6 +280,8 @@ class BossfightGame : public BasicAbstractGame {
         //     spawn_barriers();
         //     step_entities(entities);
         // }
+        ((int32_t *)e_context.items[0].data)[0] = round_health;
+        ((int32_t *)e_context.items[1].data)[0] = num_rounds;
     }
 
     void boss_fire(float bullet_r, float vel, float theta) {
