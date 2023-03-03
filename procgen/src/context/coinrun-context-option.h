@@ -21,9 +21,16 @@ public:
     int min_crate_height;
     int max_crate_height;
 
+    int max_difficulty; // 3
+    int min_difficulty; // 1
+
+    int max_section_num; // 5
+    int min_section_num; // 1
+
 
     CoinrunContextOption(/* args */);
     ~CoinrunContextOption();
     void parse_options(VecOptions *opts);
     void copy_options(CoinrunContextOption *opts);
+    void init_episode_context(struct libenv_options *e_context);
 };

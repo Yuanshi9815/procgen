@@ -84,7 +84,10 @@ default_context_options = {
         "allow_monsters": False,
         "min_crate_height": 1,
         "max_crate_height": 3,
-
+        "max_difficulty": 3,
+        "min_difficulty": 1,
+        "max_section_num": 5,
+        "min_section_num": 1
     },
     "dodgeball": {
         "world_dim": 20,
