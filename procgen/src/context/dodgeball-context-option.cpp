@@ -1,5 +1,6 @@
 #include "dodgeball-context-option.h"
 #include "../cpp-utils.h"
+#include "string.h"
 
 DodgeballContextOption::DodgeballContextOption(/* args */)
 {
@@ -56,4 +57,21 @@ void DodgeballContextOption::copy_options(DodgeballContextOption *opts)
 
     max_extra_enemies = opts->max_extra_enemies;
     base_num_enemies = opts->base_num_enemies;
+}
+
+void DodgeballContextOption::init_episode_context(struct libenv_options *e_context)
+{
+    int count_num = 2;
+    e_context->count = count_num;
+    e_context->items = new struct libenv_option[count_num];
+
+    strcpy(e_context->items[0].name, "exit_wall_id");
+    e_context->items[0].dtype = LIBENV_DTYPE_INT32;
+    e_context->items[0].count = 1;
+    e_context->items[0].data = new int32_t[1];
+
+    strcpy(e_context->items[1].name, "num_enemies");
+    e_context->items[1].dtype = LIBENV_DTYPE_INT32;
+    e_context->items[1].count = 1;
+    e_context->items[1].data = new int32_t[1];
 }

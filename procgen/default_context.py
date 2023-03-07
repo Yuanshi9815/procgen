@@ -166,6 +166,7 @@ default_context_options = {
         "maxspeed": .5,
         "visibility": 16,
         "bomb_prob": .5,
+        "min_num_sections": 1,
         "max_num_sections": 6,
         "max_gap_inc": 1,
     },
@@ -195,6 +196,9 @@ default_context_options = {
         "cloud_prob_weight": 0,
         "turret_prob_weight": 0,
         "fastflyer_prob_weight": 0,
+        "min_flyer_speed": .1,
+        "min_time": 0,
+        "max_time": 10000,
     },
 
 }

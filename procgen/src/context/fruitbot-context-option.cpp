@@ -1,5 +1,6 @@
 #include "fruitbot-context-option.h"
 #include "../cpp-utils.h"
+#include "string.h"
 
 FruitbotContextOption::FruitbotContextOption(/* args */) {
 }
@@ -37,4 +38,21 @@ void FruitbotContextOption::copy_options(FruitbotContextOption *opts) {
     max_fruits = opts->max_fruits;
     min_foods = opts->min_foods;
     max_foods = opts->max_foods;
+}
+
+void FruitbotContextOption::init_episode_context(struct libenv_options *e_context)
+{
+    int count_num = 2;
+    e_context->count = count_num;
+    e_context->items = new struct libenv_option[count_num];
+
+    strcpy(e_context->items[0].name, "num_good");
+    e_context->items[0].dtype = LIBENV_DTYPE_INT32;
+    e_context->items[0].count = 1;
+    e_context->items[0].data = new int32_t[1];
+
+    strcpy(e_context->items[1].name, "num_bad");
+    e_context->items[1].dtype = LIBENV_DTYPE_INT32;
+    e_context->items[1].count = 1;
+    e_context->items[1].data = new int32_t[1];
 }

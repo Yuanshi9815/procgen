@@ -206,8 +206,10 @@ void Game::parse_context_options(std::string name, VecOptions opts, bool init_e_
         if (init_e_context) coinrun_context_option->init_episode_context(&e_context);
     } else if (name == "dodgeball") {
         ((DodgeballContextOption*)assigned_context_option)->parse_options(&opts);
+        if (init_e_context) dodgeball_context_option->init_episode_context(&e_context);
     } else if (name == "fruitbot") {
         ((FruitbotContextOption*)assigned_context_option)->parse_options(&opts);
+        if (init_e_context) fruitbot_context_option->init_episode_context(&e_context);
     } else if (name == "heist") {
         ((HeistContextOption*)assigned_context_option)->parse_options(&opts);
         if (init_e_context) heist_context_option->init_episode_context(&e_context);
@@ -222,10 +224,12 @@ void Game::parse_context_options(std::string name, VecOptions opts, bool init_e_
         ((MinerContextOption*)assigned_context_option)->parse_options(&opts);
     } else if (name == "ninja") {
         ((NinjaContextOption*)assigned_context_option)->parse_options(&opts);
+        if (init_e_context) ninja_context_option->init_episode_context(&e_context);
     } else if (name == "plunder") {
         ((PlunderContextOption*)assigned_context_option)->parse_options(&opts);
     } else if (name == "starpilot") {
         ((StarpilotContextOption*)assigned_context_option)->parse_options(&opts);
+        if (init_e_context) starpilot_context_option->init_episode_context(&e_context);
     } else {
         fatal("unknown game name %s", name.c_str());
     }

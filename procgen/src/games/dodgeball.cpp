@@ -359,21 +359,28 @@ class DodgeballGame : public BasicAbstractGame {
         }
 
         int exit_wall_choice = rand_gen.randn(cur_choice);
-
+        int exit_wall_id;
 
         if (exit_wall_choice == choice_map[0]) {
             spawn_entity_rxy(doorlen / 2, exit_r, DOOR, 2 * border_r, 2 * border_r, main_width - 4 * border_r, 2 * exit_r);
+            exit_wall_id = 0;
         } else if (exit_wall_choice == choice_map[1]) {
             spawn_entity_rxy(doorlen / 2, exit_r, DOOR, 2 * border_r, main_height - 2 * border_r - 2 * exit_r, main_width - 4 * border_r, 2 * exit_r);
+            exit_wall_id = 1;
         } else if (exit_wall_choice == choice_map[2]) {
             spawn_entity_rxy(exit_r, doorlen / 2, DOOR, 2 * border_r, 2 * border_r, 2 * exit_r, main_height - 4 * border_r);
+            exit_wall_id = 2;
         } else if (exit_wall_choice == choice_map[3]) {
             spawn_entity_rxy(exit_r, doorlen / 2, DOOR, main_width - 2 * border_r - 2 * exit_r, 2 * border_r, 2 * exit_r, main_height - 4 * border_r);
+            exit_wall_id = 3;
         }
 
         reposition_agent();
 
         num_enemies = rand_gen.randn(max_extra_enemies + 1) + dodgeball_context_option->base_num_enemies;
+
+        ((int32_t *) e_context.items[0].data)[0] = exit_wall_id;
+        ((int32_t *) e_context.items[1].data)[0] = num_enemies;
 
         spawn_entities(num_enemies, enemy_r, ENEMY, 0, 0, main_width, main_height);
 

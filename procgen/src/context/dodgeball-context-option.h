@@ -35,4 +35,5 @@ public:
     ~DodgeballContextOption();
     void parse_options(VecOptions *opts);
     void copy_options(DodgeballContextOption *opts);
+    void init_episode_context(struct libenv_options *e_context);
 };

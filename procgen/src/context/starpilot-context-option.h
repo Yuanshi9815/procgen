@@ -17,6 +17,8 @@ public:
     int cloud_prob_weight;
     int turret_prob_weight;
     int fastflyer_prob_weight;
+    int max_time;
+    int min_time;
 
     // int fish_interval;
 
@@ -24,4 +26,5 @@ public:
     ~StarpilotContextOption();
     void parse_options(VecOptions *opts);
     void copy_options(StarpilotContextOption *opts);
+    void init_episode_context(struct libenv_options *e_context);
 };

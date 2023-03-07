@@ -25,4 +25,5 @@ class FruitbotContextOption {
     ~FruitbotContextOption();
     void parse_options(VecOptions *opts);
     void copy_options(FruitbotContextOption *opts);
+    void init_episode_context(struct libenv_options *e_context);
 };

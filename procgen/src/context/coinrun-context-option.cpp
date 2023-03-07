@@ -47,6 +47,7 @@ void CoinrunContextOption::copy_options(CoinrunContextOption *opts)
     max_crate_height = opts->max_crate_height;
     max_difficulty = opts->max_difficulty;
     min_difficulty = opts->min_difficulty;
+    min_section_num = opts->min_section_num;
     max_section_num = opts->max_section_num;
     min_section_num = opts->min_section_num;
 }

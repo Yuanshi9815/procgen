@@ -236,6 +236,9 @@ class StarPilotGame : public BasicAbstractGame {
 
     void add_spawners() {
         int t = 1 + rand_gen.randint(hp_min_enemy_delta_t, hp_max_enemy_delta_t);
+        t = starpilot_context_option->min_time > t ? starpilot_context_option->min_time : t;
+        t = starpilot_context_option->max_time < t ? starpilot_context_option->max_time : t;
+        ((int32_t *) e_context.items[0].data)[0] = t;
 
         bool can_spawn_left = options.distribution_mode != EasyMode;
         can_spawn_left = starpilot_context_option->can_spawn_left;

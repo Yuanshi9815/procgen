@@ -247,6 +247,9 @@ class FruitBotGame : public BasicAbstractGame {
         int num_good = rand_gen.randn(extra_fruits) + fruitbot_context_option->min_fruits;
         int num_bad = rand_gen.randn(extra_foods) + fruitbot_context_option->min_foods;
 
+        ((int32_t *) e_context.items[0].data)[0] = num_good;
+        ((int32_t *) e_context.items[1].data)[0] = num_bad;        
+
         for (int i = 0; i < main_width; i++) {
             auto present = add_entity_rxy(i + .5, main_height - .5, 0, 0, .5, .5, PRESENT);
             choose_random_theme(present);

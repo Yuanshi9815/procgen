@@ -13,6 +13,7 @@ public:
     float maxspeed;
     int visibility;
     float bomb_prob;
+    int min_num_sections;
     int max_num_sections;
     int max_gap_inc;
 
@@ -20,4 +21,5 @@ public:
     ~NinjaContextOption();
     void parse_options(VecOptions *opts);
     void copy_options(NinjaContextOption *opts);
+    void init_episode_context(struct libenv_options *e_context);
 };
