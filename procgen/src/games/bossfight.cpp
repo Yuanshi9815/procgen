@@ -362,6 +362,7 @@ class BossfightGame : public BasicAbstractGame {
         // 生成陨石障碍物
         int barriers_range = bossfight_context_option->max_barriers_num - bossfight_context_option->min_barriers_num + 1;
         int num_barriers = rand_gen.randn(barriers_range) + bossfight_context_option->min_barriers_num ;
+        ((int32_t *)e_context.items[2].data)[0] = num_barriers;
         for (int i = 0; i < num_barriers; i++) {
             float barrier_r = 0.6f;
             float min_barrier_y = 2 * agent->ry + barrier_r + .5;

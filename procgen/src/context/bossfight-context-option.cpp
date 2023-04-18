@@ -69,7 +69,7 @@ void BossfightContextOption::copy_options(BossfightContextOption *opts){
 }
 
 void BossfightContextOption::init_episode_context(struct libenv_options *e_context){
-    int count_num = 2;
+    int count_num = 3;
     e_context->count = count_num;
     e_context->items = new struct libenv_option[count_num];
 
@@ -79,6 +79,11 @@ void BossfightContextOption::init_episode_context(struct libenv_options *e_conte
     e_context->items[0].data = new int32_t[1];
 
     strcpy(e_context->items[1].name, "num_rounds");
+    e_context->items[1].dtype = LIBENV_DTYPE_INT32;
+    e_context->items[1].count = 1;
+    e_context->items[1].data = new int32_t[1];
+
+    strcpy(e_context->items[2].name, "num_barriers");
     e_context->items[1].dtype = LIBENV_DTYPE_INT32;
     e_context->items[1].count = 1;
     e_context->items[1].data = new int32_t[1];
