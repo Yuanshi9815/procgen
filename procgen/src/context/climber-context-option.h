@@ -29,4 +29,5 @@ public:
     ~ClimberContextOption();
     void parse_options(VecOptions *opts);
     void copy_options(ClimberContextOption *opts);
+    void init_episode_context(struct libenv_options *e_context);
 };

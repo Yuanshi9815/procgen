@@ -179,7 +179,7 @@ class Climber : public BasicAbstractGame {
         int max_difficulty = ceil(sqrt(max_p-1))-1;
         max_difficulty = max_difficulty < 0 ? 0 : max_difficulty;
         min_difficulty = min_difficulty > max_difficulty ? max_difficulty : min_difficulty;
-        printf("min_difficulty: %d, max_difficulty: %d\n", min_difficulty, max_difficulty);
+        // printf("min_difficulty: %d, max_difficulty: %d\n", min_difficulty, max_difficulty);
         int difficulty = rand_gen.randn(max_difficulty - min_difficulty + 1) + min_difficulty;
         
         int min_platforms = difficulty * difficulty + 1;
@@ -188,7 +188,9 @@ class Climber : public BasicAbstractGame {
         min_platforms = min_platforms < min_p ? min_p : min_platforms;
         int num_platforms = rand_gen.randn(max_platforms - min_platforms + 1) + min_platforms;
 
-        printf("Difficulty: %d, num_platforms: %d\n", difficulty, num_platforms);
+        ((int32_t *)e_context.items[0].data)[0] = num_platforms;
+
+        // printf("Difficulty: %d, num_platforms: %d\n", difficulty, num_platforms);
 
         coin_quota = 0;
         coins_collected = 0;

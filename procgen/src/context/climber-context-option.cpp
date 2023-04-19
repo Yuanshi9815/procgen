@@ -1,5 +1,6 @@
 #include "climber-context-option.h"
 #include "../cpp-utils.h"
+#include "string.h"
 
 ClimberContextOption::ClimberContextOption(/* args */)
 {
@@ -42,6 +43,15 @@ void ClimberContextOption::copy_options(ClimberContextOption *opts)
     min_plat_len = opts->min_plat_len;
     world_width = opts->world_width;
     margin_bottom = opts->margin_bottom;
-    // opts->start_r = opts->start_r;
-    // opts->fish_interval = opts->fish_interval;
+}
+
+void ClimberContextOption::init_episode_context(struct libenv_options *e_context){
+    int count_num = 1;
+    e_context->count = count_num;
+    e_context->items = new struct libenv_option[count_num];
+
+    strcpy(e_context->items[0].name, "num_platforms");
+    e_context->items[0].dtype = LIBENV_DTYPE_INT32;
+    e_context->items[0].count = 1;
+    e_context->items[0].data = new int32_t[1];
 }

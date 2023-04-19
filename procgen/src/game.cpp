@@ -201,6 +201,7 @@ void Game::parse_context_options(std::string name, VecOptions opts, bool init_e_
         ((ChaserContextOption*)assigned_context_option)->parse_options(&opts);
     } else if (name == "climber") {
         ((ClimberContextOption*)assigned_context_option)->parse_options(&opts);
+        if (init_e_context) climber_context_option->init_episode_context(&e_context);
     } else if (name == "coinrun") {
         ((CoinrunContextOption*)assigned_context_option)->parse_options(&opts);
         if (init_e_context) coinrun_context_option->init_episode_context(&e_context);
