@@ -68,6 +68,8 @@ class MazeGame : public BasicAbstractGame {
         maze_dim = maze_dim > maze_context_option->max_maze_dim ? maze_context_option->max_maze_dim : maze_dim;
         int margin = (world_dim - maze_dim) / 2;
 
+        ((int32_t *)e_context.items[0].data)[0] = maze_dim;
+
         std::shared_ptr<MazeGen> _maze_gen(new MazeGen(&rand_gen, maze_dim));
         maze_gen = _maze_gen;
 

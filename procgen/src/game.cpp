@@ -221,6 +221,7 @@ void Game::parse_context_options(std::string name, VecOptions opts, bool init_e_
         if (init_e_context) leaper_context_option->init_episode_context(&e_context);
     } else if (name == "maze") {
         ((MazeContextOption*)assigned_context_option)->parse_options(&opts);
+        if (init_e_context) maze_context_option->init_episode_context(&e_context);
     } else if (name == "miner") {
         ((MinerContextOption*)assigned_context_option)->parse_options(&opts);
     } else if (name == "ninja") {

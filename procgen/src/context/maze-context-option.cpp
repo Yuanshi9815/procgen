@@ -1,5 +1,6 @@
 #include "maze-context-option.h"
 #include "../cpp-utils.h"
+#include "string.h"
 
 MazeContextOption::MazeContextOption(/* args */)
 {
@@ -22,4 +23,15 @@ void MazeContextOption::copy_options(MazeContextOption *opts)
     world_dim = opts->world_dim;
     min_maze_dim = opts->min_maze_dim;
     max_maze_dim = opts->max_maze_dim;
+}
+
+void MazeContextOption::init_episode_context(struct libenv_options *e_context){
+    int count_num = 1;
+    e_context->count = count_num;
+    e_context->items = new struct libenv_option[count_num];
+
+    strcpy(e_context->items[0].name, "maze_dim");
+    e_context->items[0].dtype = LIBENV_DTYPE_INT32;
+    e_context->items[0].count = 1;
+    e_context->items[0].data = new int32_t[1];
 }
