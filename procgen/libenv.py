@@ -383,20 +383,20 @@ class CEnv(Env):
         for key, values in info.items():
             for env_idx in range(self.num):
                 infos[env_idx][key] = values[env_idx]
-        for env_idx in range(self.num):
-            infos[env_idx]["episode_context"] = {}
-            env_data = self._c_buffers[0].explicit_contexts[env_idx][0]
-            env_context_num = env_data.count
-            for i in range(env_context_num):
-                context = env_data.items[i]
-                key = self._ffi.string(context.name).decode("utf-8")
-                if context.dtype == 1:
-                    value= self._ffi.cast("uint8_t *", context.data)[0]
-                elif context.dtype == 2:
-                    value = self._ffi.cast("int32_t *", context.data)[0]
-                elif context.dtype == 3:
-                    value = self._ffi.cast("float *", context.data)[0]
-                infos[env_idx]["episode_context"][key] = value
+        # for env_idx in range(self.num):
+        #     infos[env_idx]["episode_context"] = {}
+        #     env_data = self._c_buffers[0].explicit_contexts[env_idx][0]
+        #     env_context_num = env_data.count
+        #     for i in range(env_context_num):
+        #         context = env_data.items[i]
+        #         key = self._ffi.string(context.name).decode("utf-8")
+        #         if context.dtype == 1:
+        #             value= self._ffi.cast("uint8_t *", context.data)[0]
+        #         elif context.dtype == 2:
+        #             value = self._ffi.cast("int32_t *", context.data)[0]
+        #         elif context.dtype == 3:
+        #             value = self._ffi.cast("float *", context.data)[0]
+        #         infos[env_idx]["episode_context"][key] = value
         return infos
 
     def close(self) -> None:
@@ -419,6 +419,27 @@ class CEnv(Env):
         when the function is called.
         """
         return getattr(self._c_lib, name)(self._c_env, *args)
+
+    def get_context(self) -> Tuple[Dict[str, Any]]:
+        """
+        Get the context of the current environment
+        """
+        res = [{} for _ in range(self.num)]
+        for env_idx in range(self.num):
+            env_data = self._c_buffers[0].explicit_contexts[env_idx][0]
+            env_context_num = env_data.count
+            for i in range(env_context_num):
+                context = env_data.items[i]
+                key = self._ffi.string(context.name).decode("utf-8")
+                if context.dtype == 1:
+                    value= self._ffi.cast("uint8_t *", context.data)[0]
+                elif context.dtype == 2:
+                    value = self._ffi.cast("int32_t *", context.data)[0]
+                elif context.dtype == 3:
+                    value = self._ffi.cast("float *", context.data)[0]
+                res[env_idx][key] = value
+        return res
+
 
     def __del__(self):
         self.close()
