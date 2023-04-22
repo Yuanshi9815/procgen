@@ -84,7 +84,7 @@ void BossfightContextOption::init_episode_context(struct libenv_options *e_conte
     e_context->items[1].data = new int32_t[1];
 
     strcpy(e_context->items[2].name, "num_barriers");
-    e_context->items[1].dtype = LIBENV_DTYPE_INT32;
-    e_context->items[1].count = 1;
-    e_context->items[1].data = new int32_t[1];
+    e_context->items[2].dtype = LIBENV_DTYPE_INT32;
+    e_context->items[2].count = 1;
+    e_context->items[2].data = new int32_t[1];
 }
