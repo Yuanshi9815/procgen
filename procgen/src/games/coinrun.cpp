@@ -303,9 +303,7 @@ class CoinRun : public BasicAbstractGame {
 
         allow_monsters = coinrun_context_option->allow_monsters;
 
-        printf("section_num = %d\n", num_sections);
         for (int section_idx = 0; section_idx < num_sections; section_idx++) {
-            printf("danger_type = %d\n", danger_type);
             if (curr_x + 15 >= w) {
                 break;
             }
