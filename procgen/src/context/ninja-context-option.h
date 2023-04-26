@@ -15,6 +15,8 @@ public:
     float bomb_prob;
     int min_num_sections;
     int max_num_sections;
+    int max_difficulty;
+    int min_difficulty;
     int max_gap_inc;
 
     NinjaContextOption(/* args */);

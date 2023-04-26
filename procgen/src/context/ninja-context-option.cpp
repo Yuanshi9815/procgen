@@ -18,6 +18,8 @@ void NinjaContextOption::parse_options(VecOptions *opts) {
     opts->consume_float("bomb_prob", &bomb_prob, true, .5); // The probability of a bomb appearing in each section
     opts->consume_int("min_num_sections", &min_num_sections, true, 3);
     opts->consume_int("max_num_sections", &max_num_sections, true, 6);
+    opts->consume_int("max_difficulty", &max_difficulty, true, 3);
+    opts->consume_int("min_difficulty", &min_difficulty, true, 1);
     opts->consume_int("max_gap_inc", &max_gap_inc, true, 1);
 }
 
@@ -31,6 +33,8 @@ void NinjaContextOption::copy_options(NinjaContextOption *opts) {
     bomb_prob = opts->bomb_prob;
     min_num_sections = opts->min_num_sections;
     max_num_sections = opts->max_num_sections;
+    max_difficulty = opts->max_difficulty;
+    min_difficulty = opts->min_difficulty;
     max_gap_inc = opts->max_gap_inc;
 }
 

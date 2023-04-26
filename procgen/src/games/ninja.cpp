@@ -346,8 +346,9 @@ class Ninja : public BasicAbstractGame {
             visibility = 10;
         }
 
-        int max_difficulty = 3;
-        int difficulty = rand_gen.randn(max_difficulty) + 1;
+        int max_difficulty = ninja_context_option->max_difficulty;
+        int min_difficulty = ninja_context_option->min_difficulty;
+        int difficulty = rand_gen.randn(max_difficulty - min_difficulty + 1) + min_difficulty;
 
         last_fire_time = 0;
 

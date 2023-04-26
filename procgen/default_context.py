@@ -168,6 +168,8 @@ default_context_options = {
         "bomb_prob": .5,
         "min_num_sections": 1,
         "max_num_sections": 6,
+        "min_difficulty": 1,
+        "max_difficulty": 3,
         "max_gap_inc": 1,
     },
     "plunder": {
