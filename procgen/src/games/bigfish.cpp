@@ -50,7 +50,7 @@ class BigFish : public BasicAbstractGame {
             if (obj->rx > agent->rx) {
                 step_data.done = true;
             } else {
-                step_data.reward += POSITIVE_REWARD;
+                step_data.reward += bigfish_context_option->positive_reward;
                 obj->will_erase = true;
                 agent->rx += r_inc;
                 agent->ry += r_inc;
@@ -68,11 +68,12 @@ class BigFish : public BasicAbstractGame {
 
         float start_r = bigfish_context_option->start_r;
 
-        r_inc = (FISH_MAX_R - start_r) / FISH_QUOTA;
+        r_inc = (FISH_MAX_R - start_r) / bigfish_context_option->fish_quota;
 
         agent->rx = start_r;
         agent->ry = start_r;
         agent->y = 1 + agent->ry;
+        ((float *)e_context.items[0].data)[0] = start_r;
     }
 
     void game_step() override {
