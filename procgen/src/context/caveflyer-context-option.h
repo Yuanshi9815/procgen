@@ -17,6 +17,9 @@ public:
     float enemy_v_fast; // The fast speed of enemies.
     float enemy_v_slow; // The slow speed of enemies.
 
+    float goal_reward; // The reward of reaching the goal.
+    float target_reward; // The reward of reaching the target.
+
 
     CaveflyerContextOption(/* args */);
     ~CaveflyerContextOption();

@@ -33,6 +33,9 @@ class BossfightContextOption {
     int max_barriers_num;
     int min_barriers_num;
 
+    int completion_bonus;
+    int positive_reward;
+
     BossfightContextOption(/* args */);
     ~BossfightContextOption();
     void parse_options(VecOptions *opts);

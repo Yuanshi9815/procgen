@@ -148,11 +148,11 @@ class BossfightGame : public BasicAbstractGame {
                     will_erase = true;
 
                     if (int(target->health) % round_health == 0) {
-                        step_data.reward += POSITIVE_REWARD;
+                        step_data.reward += bossfight_context_option->positive_reward;
 
                         if (target->health == 0) {
                             step_data.done = true;
-                            step_data.reward += COMPLETION_BONUS;
+                            step_data.reward += bossfight_context_option->completion_bonus;
                             step_data.level_complete = true;
                         } else {
                             round_num++;

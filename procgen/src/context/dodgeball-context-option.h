@@ -31,6 +31,8 @@ public:
 
     int fire_interval;
 
+    float completion_bonus;
+
     DodgeballContextOption(/* args */);
     ~DodgeballContextOption();
     void parse_options(VecOptions *opts);

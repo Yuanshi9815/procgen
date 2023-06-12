@@ -3,42 +3,39 @@ default_context_options = {
         "start_r": 1.,
         "fish_prob": .1,
         "from_left_prob": .5,
-        "completion_bonus": 10,
-        "positive_reward": 1,
+        "completion_bonus": 10.,
+        "positive_reward": 1.,
         "fish_min_r": .25,
         "fish_max_r": 2.,
         "fish_quota": 30,
         "min_speed": .15,
         "max_speed": .4,
+        # Total: 10
     },
     "bossfight": {
         "completion_bonus": 10,
         "positive_reward": 1,
-        
         "boss_r": 3.,
         "player_bullet_vel": 1,
         "bottom_margin": 6,
-
         "boss_bullet_vel": .5,
         "max_extra_invulnerable": 1,
-
         "boss_vel_timeout": 20,
         "boss_damage_timeout": 40,
-
         "max_rounds_num": 5,
         "min_rounds_num": 1,
         "max_round_health": 9,
         "min_round_health": 1,
-
         "enable_attack_mode_0": True,
         "enable_attack_mode_1": True,
         "enable_attack_mode_2": True,
         "enable_attack_mode_3": True,
-
         "enable_shield": True,
-
         "max_barriers_num": 3,
         "min_barriers_num": 1,
+        "completion_bonus": 10,
+        "positive_reward": 1,
+        # Total: 22
     },
     "caveflyer": {
         "world_dim": 30,
@@ -48,14 +45,20 @@ default_context_options = {
         "enable_enemy": True,
         "enemy_v_fast": .2,
         "enemy_v_slow": .1,
+        "goal_reward": 10.,
+        "target_reward": 3.,
+        # Total: 9
     },
     "chaser":{
         "maze_dim": 11,
         "total_enemies": 3,
-        # "extra_orb_sign": 0,
+        "extra_orb_sign": 0,
         "eat_time": 75,
         "egg_time": 50,
         "total_orbs": 10,
+        "completion_bonus":10.,
+        "orb_reward": 0.04,
+        # Total: 8
     },
     "climber": {
         "gravity": .2,
@@ -70,6 +73,9 @@ default_context_options = {
         "min_plat_len": 2,
         "world_width": 16,
         "margin_bottom": 5,
+        "completion_bonus": 10.,
+        "coin_reward": 1.,
+        # Total: 13
     },
     "coinrun": {
         "visibility": 13,
@@ -87,25 +93,28 @@ default_context_options = {
         "max_difficulty": 3,
         "min_difficulty": 1,
         "max_section_num": 5,
-        "min_section_num": 1
+        "min_section_num": 1,
+        "goal_reward": 10.,
+        # 16
     },
     "dodgeball": {
         "world_dim": 20,
-        "fire_interval": 20,
+        "fire_interval": 7,
         "thickness": .6,
-        "enemy_r": .5,
+        "enemy_r": 1.,
         "ball_r": .5,
         "ball_vscale": .5,
         "maxspeed": .75,
         "exit_r": 1.5,
-        "enemy_v": .05,
-        "num_iterations": 4,
+        "enemy_speed": .05,
+        "num_iterations": 2,
         "max_extra_enemies": 3,
         "base_num_enemies": 3,
         "allow_left_exit": True,
         "allow_right_exit": True,
         "allow_top_exit": True,
         "allow_bottom_exit": True,
+        # Total: 16
     },
     "fruitbot": {
         "main_width":10,
@@ -120,6 +129,7 @@ default_context_options = {
         "max_fruits": 19,
         "min_foods": 10,
         "max_foods": 19,
+        # Total: 12
     },
     "heist": {
         "world_dim": 9,
@@ -127,6 +137,7 @@ default_context_options = {
         "min_maze_dim": 5,
         "min_keys": 0,
         "max_keys": 3,
+        # Total: 5
     },
     "jumper": {
         "world_dim": 20,
@@ -134,6 +145,7 @@ default_context_options = {
         "compass_dim": 3,
         "jump_cooldown": 3,
         "max_jump_count": 2,
+        # Total: 5
     },
     "leaper": {
         "world_dim": 9,
@@ -147,16 +159,19 @@ default_context_options = {
         "max_log": 3,
         "min_log": 0,
         "car_left_prob": .5,
+        # Total: 11
     },
     "maze": {
         "world_dim": 15,
         "min_maze_dim": 3,
         "max_maze_dim": 15,
+        # Total: 3
     },
     "miner": {
         "world_dim": 15,
         "diamond_pct": .03,
         "boulder_pct": .2,
+        # Total: 3
     },
     "ninja": {
         "gravity": .2,
@@ -171,6 +186,7 @@ default_context_options = {
         "min_difficulty": 1,
         "max_difficulty": 3,
         "max_gap_inc": 1,
+        # Total: 12
     },
     "plunder": {
         "target_time_reward": 0.1,
@@ -185,6 +201,7 @@ default_context_options = {
         "enemy_prob": .5,
         "max_speed": .25,
         "min_speed": .15,
+        # Total: 12
     },
     "starpilot": {
         "maxspeed": .75,
@@ -201,6 +218,6 @@ default_context_options = {
         "min_flyer_speed": .1,
         "min_time": 0,
         "max_time": 10000,
-    },
-
+        # Total: 14
+    }
 }

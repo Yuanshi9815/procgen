@@ -162,6 +162,8 @@ class ChaserGame : public BasicAbstractGame {
             fassert(false);
         }
 
+        extra_orb_sign = chaser_context_option->extra_orb_sign;
+
         maze_dim = chaser_context_option->maze_dim;
         total_enemies = chaser_context_option->total_enemies;
 

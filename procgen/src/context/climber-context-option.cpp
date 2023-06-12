@@ -25,8 +25,8 @@ void ClimberContextOption::parse_options(VecOptions *opts)
     opts->consume_int("min_plat_len", &min_plat_len, true, 2);
     opts->consume_int("world_width", &world_width, true, 16);
     opts->consume_int("margin_bottom", &margin_bottom, true, 5);
-    // opts->consume_float("start_r", &start_r);
-    // opts->consume_int("fish_interval", &fish_interval);
+    opts->consume_float("completion_bonus", &completion_bonus, true, 10);
+    opts->consume_float("coin_reward", &coin_reward, true, 1);    
 }
 
 void ClimberContextOption::copy_options(ClimberContextOption *opts)
@@ -43,6 +43,8 @@ void ClimberContextOption::copy_options(ClimberContextOption *opts)
     min_plat_len = opts->min_plat_len;
     world_width = opts->world_width;
     margin_bottom = opts->margin_bottom;
+    completion_bonus = opts->completion_bonus;
+    coin_reward = opts->coin_reward;
 }
 
 void ClimberContextOption::init_episode_context(struct libenv_options *e_context){

@@ -21,6 +21,9 @@ void CaveflyerContextOption::parse_options(VecOptions *opts)
 
     opts->consume_float("enemy_v_fast", &enemy_v_fast, true, .2);
     opts->consume_float("enemy_v_slow", &enemy_v_slow, true, .1);
+
+    opts->consume_float("goal_reward", &goal_reward, true, 10.);
+    opts->consume_float("target_reward", &target_reward, true, 3.);
 }
 
 void CaveflyerContextOption::copy_options(CaveflyerContextOption *opts)
@@ -34,4 +37,7 @@ void CaveflyerContextOption::copy_options(CaveflyerContextOption *opts)
 
     enemy_v_fast = opts->enemy_v_fast;
     enemy_v_slow = opts->enemy_v_slow;
+
+    goal_reward = opts->goal_reward;
+    target_reward = opts->target_reward;
 }

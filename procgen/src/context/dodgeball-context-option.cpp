@@ -17,7 +17,7 @@ void DodgeballContextOption::parse_options(VecOptions *opts)
     opts->consume_int("world_dim", &world_dim, true, 20); // The dimension of the world
     opts->consume_int("fire_interval", &fire_interval, true, 7); // The interval of the agent's fire
     opts->consume_float("thickness", &thickness, true, 0.6); // The thickness of the walls
-    opts->consume_float("enemy_r", &enemy_r, true, 0.5); // The radius of the enemy
+    opts->consume_float("enemy_r", &enemy_r, true, 1.0); // The radius of the enemy
     opts->consume_float("ball_r", &ball_r, true, 0.5); // The radius of the ball
     opts->consume_float("ball_vscale", &ball_vscale, true, 0.5); // The speed of the ball
     opts->consume_float("maxspeed", &maxspeed, true, 0.75); // The maximum speed of the agent

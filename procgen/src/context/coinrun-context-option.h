@@ -27,6 +27,9 @@ public:
     int max_section_num; // 5
     int min_section_num; // 1
 
+    float goal_reward;
+
+
 
     CoinrunContextOption(/* args */);
     ~CoinrunContextOption();

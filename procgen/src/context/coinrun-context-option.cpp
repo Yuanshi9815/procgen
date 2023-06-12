@@ -29,6 +29,7 @@ void CoinrunContextOption::parse_options(VecOptions *opts)
     opts->consume_int("min_difficulty", &min_difficulty, true, 1);
     opts->consume_int("max_section_num", &max_section_num, true, 5);
     opts->consume_int("min_section_num", &min_section_num, true, 1);
+    opts->consume_float("goal_reward", &goal_reward, true, 0.5);
 }
 
 void CoinrunContextOption::copy_options(CoinrunContextOption *opts)
@@ -50,6 +51,7 @@ void CoinrunContextOption::copy_options(CoinrunContextOption *opts)
     min_section_num = opts->min_section_num;
     max_section_num = opts->max_section_num;
     min_section_num = opts->min_section_num;
+    goal_reward = opts->goal_reward;
 }
 
 void CoinrunContextOption::init_episode_context(struct libenv_options *e_context)

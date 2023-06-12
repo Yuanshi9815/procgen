@@ -25,6 +25,9 @@ public:
 
     int margin_bottom; // The margin from the bottom of the screen. 
 
+    float completion_bonus;
+    float coin_reward;
+
     ClimberContextOption(/* args */);
     ~ClimberContextOption();
     void parse_options(VecOptions *opts);

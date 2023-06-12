@@ -91,7 +91,7 @@ class Climber : public BasicAbstractGame {
         if (obj->type == ENEMY) {
             step_data.done = true;
         } else if (obj->type == COIN) {
-            step_data.reward += COIN_REWARD;
+            step_data.reward += climber_context_option->coin_reward;
             coins_collected += 1;
             obj->will_erase = true;
         }
@@ -335,7 +335,7 @@ class Climber : public BasicAbstractGame {
 
         if (coin_quota == coins_collected) {
             step_data.done = true;
-            step_data.reward += COMPLETION_BONUS;
+            step_data.reward += climber_context_option->completion_bonus;
             step_data.level_complete = true;
         }
     }
