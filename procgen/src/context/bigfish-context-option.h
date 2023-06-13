@@ -10,8 +10,8 @@ public:
     
     float fish_prob;
     
-    int completion_bonus;
-    int positive_reward;
+    float completion_bonus;
+    float positive_reward;
     
     float fish_min_r;
     float fish_max_r;

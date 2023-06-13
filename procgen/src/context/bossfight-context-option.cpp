@@ -37,10 +37,6 @@ void BossfightContextOption::parse_options(VecOptions *opts) {
     opts->consume_int("max_barriers_num", &max_barriers_num, true, 3);
     opts->consume_int("min_barriers_num", &min_barriers_num, true, 1);
 
-
-    opts->consume_int("completion_bonus", &completion_bonus, true, 10);
-    opts->consume_int("positive_reward", &positive_reward, true, 1);
-
     opts->consume_int("max_episode_steps", &max_episode_steps, true, 1000);
 }
 
@@ -72,9 +68,6 @@ void BossfightContextOption::copy_options(BossfightContextOption *opts){
 
     max_barriers_num = opts->max_barriers_num;
     min_barriers_num = opts->min_barriers_num;
-    
-    completion_bonus = opts->completion_bonus;
-    positive_reward = opts->positive_reward;
 
     max_episode_steps = opts->max_episode_steps;
 }

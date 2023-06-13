@@ -33,9 +33,6 @@ class BossfightContextOption {
     int max_barriers_num;
     int min_barriers_num;
 
-    int completion_bonus;
-    int positive_reward;
-
     int max_episode_steps;
 
     BossfightContextOption(/* args */);

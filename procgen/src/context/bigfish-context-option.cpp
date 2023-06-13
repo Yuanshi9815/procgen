@@ -15,8 +15,8 @@ void BigfishContextOption::parse_options(VecOptions *opts)
     opts->consume_float("start_r", &start_r, true, 1);
     opts->consume_float("fish_prob", &fish_prob, true, .1);
 
-    opts->consume_int("completion_bonus", &completion_bonus, true, 10);
-    opts->consume_int("positive_reward", &positive_reward, true, 1);
+    opts->consume_float("completion_bonus", &completion_bonus, true, 10);
+    opts->consume_float("positive_reward", &positive_reward, true, 1);
 
     opts->consume_float("fish_min_r", &fish_min_r, true, .25);
     opts->consume_float("fish_max_r", &fish_max_r, true, 2.);
