@@ -26,6 +26,8 @@ void BigfishContextOption::parse_options(VecOptions *opts)
     opts->consume_float("from_left_prob", &from_left_prob, true,.5);
     opts->consume_float("min_speed", &min_speed, true, .15);
     opts->consume_float("max_speed", &max_speed, true, .4);
+
+    opts->consume_int("max_episode_steps", &max_episode_steps, true, 1000);
 }
 
 void BigfishContextOption::copy_options(BigfishContextOption *opts)
@@ -40,6 +42,8 @@ void BigfishContextOption::copy_options(BigfishContextOption *opts)
     from_left_prob = opts->from_left_prob;
     min_speed = opts->min_speed;
     max_speed = opts->max_speed;
+
+    max_episode_steps = opts->max_episode_steps;
 }
 
 void BigfishContextOption::init_episode_context(struct libenv_options *e_context){

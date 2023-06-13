@@ -36,6 +36,8 @@ class BossfightContextOption {
     int completion_bonus;
     int positive_reward;
 
+    int max_episode_steps;
+
     BossfightContextOption(/* args */);
     ~BossfightContextOption();
     void parse_options(VecOptions *opts);

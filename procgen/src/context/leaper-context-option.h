@@ -25,6 +25,8 @@ public:
 
     float goal_reward;
 
+    int max_episode_steps;
+    
     LeaperContextOption(/* args */);
     ~LeaperContextOption();
     void parse_options(VecOptions *opts);

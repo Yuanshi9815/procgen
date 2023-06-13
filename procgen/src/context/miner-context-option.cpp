@@ -15,6 +15,7 @@ void MinerContextOption::parse_options(VecOptions *opts) {
 
     opts->consume_float("completion_bonus", &completion_bonus, true, 10.0);
     opts->consume_float("diamond_reward", &diamond_reward, true, 1.0);
+    opts->consume_int("max_episode_steps", &max_episode_steps, true, 1000);
 }
 
 void MinerContextOption::copy_options(MinerContextOption *opts) {
@@ -24,4 +25,5 @@ void MinerContextOption::copy_options(MinerContextOption *opts) {
 
     completion_bonus = opts->completion_bonus;
     diamond_reward = opts->diamond_reward;
+    max_episode_steps = opts->max_episode_steps;
 }

@@ -16,6 +16,8 @@ public:
 
     float completion_bonus;
 
+    int max_episode_steps;
+
     HeistContextOption(/* args */);
     ~HeistContextOption();
     void parse_options(VecOptions *opts);

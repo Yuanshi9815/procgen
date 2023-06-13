@@ -12,6 +12,8 @@ class MinerContextOption {
     float completion_bonus;
     float diamond_reward;
 
+    int max_episode_steps;
+    
     MinerContextOption(/* args */);
     ~MinerContextOption();
     void parse_options(VecOptions *opts);

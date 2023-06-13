@@ -21,6 +21,8 @@ public:
 
     float goal_reward;
 
+    int max_episode_steps;
+    
     NinjaContextOption(/* args */);
     ~NinjaContextOption();
     void parse_options(VecOptions *opts);

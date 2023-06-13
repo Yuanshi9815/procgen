@@ -22,6 +22,8 @@ public:
     float completion_bonus;
     float positive_reward;
 
+    int max_episode_steps;
+    
     PlunderContextOption(/* args */);
     ~PlunderContextOption();
     void parse_options(VecOptions *opts);

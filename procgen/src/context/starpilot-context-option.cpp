@@ -33,6 +33,7 @@ void StarpilotContextOption::parse_options(VecOptions *opts)
 
     opts->consume_float("completion_bonus", &completion_bonus, true, 10.0);
     opts->consume_float("enemy_reward", &enemy_reward, true, 1.0);
+    opts->consume_int("max_episode_steps", &max_episode_steps, true, 1000);
 }
 
 void StarpilotContextOption::copy_options(StarpilotContextOption *opts)
@@ -53,6 +54,8 @@ void StarpilotContextOption::copy_options(StarpilotContextOption *opts)
 
     completion_bonus = opts->completion_bonus;
     enemy_reward = opts->enemy_reward;
+
+    max_episode_steps = opts->max_episode_steps;
 }
 
 void StarpilotContextOption::init_episode_context(struct libenv_options *e_context)

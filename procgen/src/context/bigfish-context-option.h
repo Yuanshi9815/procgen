@@ -22,6 +22,7 @@ public:
     float min_speed;
     float max_speed;
 
+    int max_episode_steps;
 
     BigfishContextOption(/* args */);
     ~BigfishContextOption();

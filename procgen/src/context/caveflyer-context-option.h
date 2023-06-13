@@ -20,6 +20,7 @@ public:
     float goal_reward; // The reward of reaching the goal.
     float target_reward; // The reward of reaching the target.
 
+    int max_episode_steps;
 
     CaveflyerContextOption(/* args */);
     ~CaveflyerContextOption();

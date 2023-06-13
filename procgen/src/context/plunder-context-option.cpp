@@ -27,6 +27,7 @@ void PlunderContextOption::parse_options(VecOptions *opts)
 
     opts->consume_float("completion_bonus", &completion_bonus, true, 10.0);
     opts->consume_float("positive_reward", &positive_reward, true, 1.0);
+    opts->consume_int("max_episode_steps", &max_episode_steps, true, 1000);
 }
 
 void PlunderContextOption::copy_options(PlunderContextOption *opts)
@@ -45,5 +46,7 @@ void PlunderContextOption::copy_options(PlunderContextOption *opts)
     min_speed = opts->min_speed;
 
     completion_bonus = opts->completion_bonus;
-    positve_reward = opts->positive_reward;
+    positive_reward = opts->positive_reward;
+
+    max_episode_steps = opts->max_episode_steps;
 }

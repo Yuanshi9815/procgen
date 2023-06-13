@@ -63,6 +63,8 @@ class BigFish : public BasicAbstractGame {
         bigfish_context_option->copy_options((BigfishContextOption*)assigned_context_option);
         BasicAbstractGame::game_reset();
 
+        timeout = bigfish_context_option->max_episode_steps;
+        
         options.center_agent = false;
         fish_eaten = 0;
 

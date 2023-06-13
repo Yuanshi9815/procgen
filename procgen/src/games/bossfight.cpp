@@ -204,6 +204,8 @@ class BossfightGame : public BasicAbstractGame {
         bossfight_context_option->copy_options((BossfightContextOption *)assigned_context_option);
         BasicAbstractGame::game_reset();
 
+        timeout = bossfight_context_option->max_episode_steps;
+
         damaged_until_time = 0;
         last_fire_time = 0;
         boss_bullet_vel = options.distribution_mode == EasyMode ? .5 : .75;

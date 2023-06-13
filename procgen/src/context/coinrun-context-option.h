@@ -30,6 +30,7 @@ public:
     float goal_reward;
 
 
+    int max_episode_steps;
 
     CoinrunContextOption(/* args */);
     ~CoinrunContextOption();

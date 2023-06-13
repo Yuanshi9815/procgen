@@ -28,6 +28,7 @@ public:
     float completion_bonus;
     float coin_reward;
 
+    int max_episode_steps;
     ClimberContextOption(/* args */);
     ~ClimberContextOption();
     void parse_options(VecOptions *opts);

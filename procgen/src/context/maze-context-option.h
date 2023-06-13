@@ -13,6 +13,8 @@ public:
     float visibility;
     float goal_reward;
 
+    int max_episode_steps;
+    
     MazeContextOption(/* args */);
     ~MazeContextOption();
     void parse_options(VecOptions *opts);

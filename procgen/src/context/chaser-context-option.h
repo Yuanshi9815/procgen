@@ -18,6 +18,7 @@ public:
     float completion_bonus; // The bonus for completing the level.
     float orb_reward; // The reward for eating an enemy.
 
+    int max_episode_steps;
     ChaserContextOption(/* args */);
     ~ChaserContextOption();
     void parse_options(VecOptions *opts);

@@ -22,6 +22,7 @@ void HeistContextOption::parse_options(VecOptions *opts)
     opts->consume_float("maxspeed", &maxspeed, true, 0.75);
 
     opts->consume_float("completion_bonus", &completion_bonus, true, 10.0);
+    opts->consume_int("max_episode_steps", &max_episode_steps, true, 1000);
 }
 
 void HeistContextOption::copy_options(HeistContextOption *opts)
@@ -35,6 +36,7 @@ void HeistContextOption::copy_options(HeistContextOption *opts)
     maxspeed = opts->maxspeed;
 
     completion_bonus = opts->completion_bonus;
+    max_episode_steps = opts->max_episode_steps;
 }
 
 void HeistContextOption::init_episode_context(struct libenv_options *e_context)

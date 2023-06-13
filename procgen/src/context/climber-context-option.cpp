@@ -27,6 +27,7 @@ void ClimberContextOption::parse_options(VecOptions *opts)
     opts->consume_int("margin_bottom", &margin_bottom, true, 5);
     opts->consume_float("completion_bonus", &completion_bonus, true, 10);
     opts->consume_float("coin_reward", &coin_reward, true, 1);    
+    opts->consume_int("max_episode_steps", &max_episode_steps, true, 1000);
 }
 
 void ClimberContextOption::copy_options(ClimberContextOption *opts)
@@ -45,6 +46,7 @@ void ClimberContextOption::copy_options(ClimberContextOption *opts)
     margin_bottom = opts->margin_bottom;
     completion_bonus = opts->completion_bonus;
     coin_reward = opts->coin_reward;
+    max_episode_steps = opts->max_episode_steps;
 }
 
 void ClimberContextOption::init_episode_context(struct libenv_options *e_context){

@@ -24,6 +24,8 @@ class FruitbotContextOption {
     float positive_reward;
     float penalty;
 
+    int max_episode_steps;
+    
     FruitbotContextOption(/* args */);
     ~FruitbotContextOption();
     void parse_options(VecOptions *opts);

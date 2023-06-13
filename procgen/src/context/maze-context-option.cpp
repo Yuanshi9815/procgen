@@ -19,6 +19,7 @@ void MazeContextOption::parse_options(VecOptions *opts)
 
     opts->consume_float("visibility", &visibility, true, 8.0);
     opts->consume_float("goal_reward", &goal_reward, true, 10.0);
+    opts->consume_int("max_episode_steps", &max_episode_steps, true, 1000);
 }
 
 void MazeContextOption::copy_options(MazeContextOption *opts)
@@ -29,6 +30,7 @@ void MazeContextOption::copy_options(MazeContextOption *opts)
 
     visibility = opts->visibility;
     goal_reward = opts->goal_reward;
+    max_episode_steps = opts->max_episode_steps;
 }
 
 void MazeContextOption::init_episode_context(struct libenv_options *e_context){

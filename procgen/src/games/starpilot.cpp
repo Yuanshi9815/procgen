@@ -345,6 +345,7 @@ class StarPilotGame : public BasicAbstractGame {
         // copy assigned_context_option to context_option
         // e.g. chaser_context_option->copy_options((ChaserContextOption *) assigned_context_option);
         starpilot_context_option->copy_options((StarpilotContextOption *) assigned_context_option);
+        timeout = starpilot_context_option->max_episode_steps;
         BasicAbstractGame::game_reset();
 
         options.center_agent = false;

@@ -23,6 +23,8 @@ public:
     float completion_bonus;
     float enemy_reward;
 
+
+    int max_episode_steps;
     // int fish_interval;
 
     StarpilotContextOption(/* args */);

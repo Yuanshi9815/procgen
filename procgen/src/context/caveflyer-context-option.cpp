@@ -24,6 +24,8 @@ void CaveflyerContextOption::parse_options(VecOptions *opts)
 
     opts->consume_float("goal_reward", &goal_reward, true, 10.);
     opts->consume_float("target_reward", &target_reward, true, 3.);
+
+    opts->consume_int("max_episode_steps", &max_episode_steps, true, 1000);
 }
 
 void CaveflyerContextOption::copy_options(CaveflyerContextOption *opts)
@@ -40,4 +42,6 @@ void CaveflyerContextOption::copy_options(CaveflyerContextOption *opts)
 
     goal_reward = opts->goal_reward;
     target_reward = opts->target_reward;
+
+    max_episode_steps = opts->max_episode_steps;
 }

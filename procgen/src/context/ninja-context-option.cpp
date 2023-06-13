@@ -23,6 +23,7 @@ void NinjaContextOption::parse_options(VecOptions *opts) {
     opts->consume_int("max_gap_inc", &max_gap_inc, true, 1);
 
     opts->consume_float("goal_reward", &goal_reward, true, 10.0);
+    opts->consume_int("max_episode_steps", &max_episode_steps, true, 1000);
 }
 
 void NinjaContextOption::copy_options(NinjaContextOption *opts) {
@@ -40,6 +41,7 @@ void NinjaContextOption::copy_options(NinjaContextOption *opts) {
     max_gap_inc = opts->max_gap_inc;
 
     goal_reward = opts->goal_reward;
+    max_episode_steps = opts->max_episode_steps;
 }
 
 void NinjaContextOption::init_episode_context(struct libenv_options *e_context)

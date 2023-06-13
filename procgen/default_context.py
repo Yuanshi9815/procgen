@@ -1,5 +1,6 @@
 default_context_options = {
     "bigfish": {
+        "max_episode_steps": 1000,
         "start_r": 1.,
         "fish_prob": .1,
         "from_left_prob": .5,
@@ -10,9 +11,10 @@ default_context_options = {
         "fish_quota": 30,
         "min_speed": .15,
         "max_speed": .4,
-        # Total: 10
+        # Total: 11
     },
     "bossfight": {
+        "max_episode_steps": 1000,
         "completion_bonus": 10,
         "positive_reward": 1,
         "boss_r": 3.,
@@ -35,9 +37,10 @@ default_context_options = {
         "min_barriers_num": 1,
         "completion_bonus": 10,
         "positive_reward": 1,
-        # Total: 22
+        # Total: 23
     },
     "caveflyer": {
+        "max_episode_steps": 1000,
         "world_dim": 30,
         "objects_factor": 10,
         "enable_obstacle": False,
@@ -47,9 +50,10 @@ default_context_options = {
         "enemy_v_slow": .1,
         "goal_reward": 10.,
         "target_reward": 3.,
-        # Total: 9
+        # Total: 10
     },
     "chaser":{
+        "max_episode_steps": 1000,
         "maze_dim": 11,
         "total_enemies": 3,
         "extra_orb_sign": 0,
@@ -58,9 +62,10 @@ default_context_options = {
         "total_orbs": 10,
         "completion_bonus":10.,
         "orb_reward": 0.04,
-        # Total: 8
+        # Total: 9
     },
     "climber": {
+        "max_episode_steps": 1000,
         "gravity": .2,
         "max_jump": 1.5,
         "air_control": .15,
@@ -75,9 +80,10 @@ default_context_options = {
         "margin_bottom": 5,
         "completion_bonus": 10.,
         "coin_reward": 1.,
-        # Total: 13
+        # Total: 14
     },
     "coinrun": {
+        "max_episode_steps": 1000,
         "visibility": 13,
         "maxspeed": .5,
         "main_width": 64,
@@ -95,9 +101,10 @@ default_context_options = {
         "max_section_num": 5,
         "min_section_num": 1,
         "goal_reward": 10.,
-        # 16
+        # Total: 18
     },
     "dodgeball": {
+        "max_episode_steps": 1000,
         "world_dim": 20,
         "fire_interval": 7,
         "thickness": .6,
@@ -115,9 +122,10 @@ default_context_options = {
         "allow_top_exit": True,
         "allow_bottom_exit": True,
         "completion_bonus": 10.,
-        # Total: 17
+        # Total: 18
     },
     "fruitbot": {
+        "max_episode_steps": 1000,
         "main_width":10,
         "main_height":60,
         "min_sep": 4,
@@ -133,9 +141,10 @@ default_context_options = {
         "completion_bonus": 10.,
         "positive_reward": 1.,
         "penalty": -4.,
-        # Total: 15
+        # Total: 16
     },
     "heist": {
+        "max_episode_steps": 1000,
         "world_dim": 9,
         "max_maze_dim": 9,
         "min_maze_dim": 5,
@@ -143,18 +152,20 @@ default_context_options = {
         "max_keys": 3,
         "maxspeed": 0.75,
         "completion_bonus": 10.,
-        # Total: 7
+        # Total: 8
     },
     "jumper": {
+        "max_episode_steps": 1000,
         "world_dim": 20,
         "visibility": 12,
         "compass_dim": 3,
         "jump_cooldown": 3,
         "max_jump_count": 2,
         "goal_reward": 10.,
-        # Total: 6
+        # Total: 7
     },
     "leaper": {
+        "max_episode_steps": 1000,
         "world_dim": 9,
         "min_car_speed": .03,
         "max_car_speed": .12,
@@ -167,17 +178,19 @@ default_context_options = {
         "min_log": 0,
         "car_left_prob": .5,
         "goal_reward": 10.,
-        # Total: 12
+        # Total: 13
     },
     "maze": {
+        "max_episode_steps": 1000,
         "world_dim": 15,
         "min_maze_dim": 3,
         "max_maze_dim": 15,
         "visibility": 8.,
         "goal_reward": 10., 
-        # Total: 5
+        # Total: 6
     },
     "miner": {
+        "max_episode_steps": 1000,
         "world_dim": 15,
         "diamond_pct": .03,
         "boulder_pct": .2,
@@ -186,6 +199,7 @@ default_context_options = {
         # Total: 5
     },
     "ninja": {
+        "max_episode_steps": 1000,
         "gravity": .2,
         "max_jump": 1.25,
         "jump_charge_inc": .25,
@@ -199,9 +213,10 @@ default_context_options = {
         "max_difficulty": 3,
         "max_gap_inc": 1,
         "goal_reward": 10.,
-        # Total: 13
+        # Total: 14
     },
     "plunder": {
+        "max_episode_steps": 1000,
         "target_time_reward": 0.1,
         "target_time_penalty": 0.1,
         "step_time_penalty": 0.0015,
@@ -216,9 +231,10 @@ default_context_options = {
         "min_speed": .15,
         "completion_bonus": 10.,
         "positive_reward": 1.,
-        # Total: 14
+        # Total: 15
     },
     "starpilot": {
+        "max_episode_steps": 1000,
         "maxspeed": .75,
         "max_group_size": 5,
         "can_spawn_left": False,
@@ -235,6 +251,6 @@ default_context_options = {
         "max_time": 10000,
         "completion_bonus": 10.,
         "enemy_reward": 1.,
-        # Total: 16
+        # Total: 17
     }
 }

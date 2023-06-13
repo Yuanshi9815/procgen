@@ -135,6 +135,7 @@ class MinerGame : public BasicAbstractGame {
         // copy assigned_context_option to context_option
         // e.g. chaser_context_option->copy_options((ChaserContextOption *) assigned_context_option);
         miner_context_option->copy_options((MinerContextOption *) assigned_context_option);
+        timeout = miner_context_option-> max_episode_steps;
         BasicAbstractGame::game_reset();
 
         agent->rx = .5;

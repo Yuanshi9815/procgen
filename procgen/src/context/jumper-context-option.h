@@ -14,6 +14,8 @@ public:
 
     float goal_reward;
 
+    int max_episode_steps;
+    
     JumperContextOption(/* args */);
     ~JumperContextOption();
     void parse_options(VecOptions *opts);

@@ -15,6 +15,7 @@ void JumperContextOption::parse_options(VecOptions *opts) {
     opts->consume_int("max_jump_count", &max_jump_count, true, 2);
 
     opts->consume_float("goal_reward", &goal_reward, true, 10.0);
+    opts->consume_int("max_episode_steps", &max_episode_steps, true, 1000);
 }
 
 void JumperContextOption::copy_options(JumperContextOption *opts) {
@@ -25,4 +26,5 @@ void JumperContextOption::copy_options(JumperContextOption *opts) {
     max_jump_count = opts->max_jump_count;
 
     goal_reward = opts->goal_reward;
+    max_episode_steps = opts->max_episode_steps;
 }

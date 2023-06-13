@@ -33,6 +33,7 @@ public:
 
     float completion_bonus;
 
+    int max_episode_steps;
     DodgeballContextOption(/* args */);
     ~DodgeballContextOption();
     void parse_options(VecOptions *opts);
