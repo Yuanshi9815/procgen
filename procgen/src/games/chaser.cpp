@@ -193,21 +193,10 @@ class ChaserGame : public BasicAbstractGame {
         int num_quadrants = 4;
         int extra_quad = rand_gen.randn(num_quadrants);
 
-        int base_orbs_per_quad = chaser_context_option->total_orbs / num_quadrants;
-        int mod_orbs = chaser_context_option->total_orbs % num_quadrants;
-        if (mod_orbs == 0) {
-            extra_orb_sign = 0;
-        } else if (mod_orbs == 1) {
-            extra_orb_sign = 1;
-        } else {
-            base_orbs_per_quad++;
-            extra_orb_sign = -1;
-        }
-
         // Select the quadrant that will have the extra orb
         for (int i = 0; i < num_quadrants; i++) {
             std::vector<int> quadrant;
-            orbs_for_quadrant.push_back(base_orbs_per_quad + (i == extra_quad ? extra_orb_sign : 0));
+            orbs_for_quadrant.push_back(1 + (i == extra_quad ? extra_orb_sign : 0));
             quadrants.push_back(quadrant);
         }
 

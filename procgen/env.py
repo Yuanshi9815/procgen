@@ -275,4 +275,8 @@ class ToBaselinesVecEnv(gym3.ToBaselinesVecEnv):
 
 
 def ProcgenEnv(num_envs, env_name, **kwargs):
-    return ToBaselinesVecEnv(ProcgenGym3Env(num=num_envs, env_name=env_name, **kwargs))
+    env1 = ProcgenGym3Env(num_envs, env_name, **kwargs)
+    env2 = ToBaselinesVecEnv(env1)
+    env2.set_context_to = env1.set_context_to
+    env2.get_context = env1.get_context
+    return env2

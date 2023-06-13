@@ -209,7 +209,7 @@ class Ninja : public BasicAbstractGame {
         int max_gap_inc = difficulty == 1 ? 1 : 2;
         max_gap_inc = ninja_context_option->max_gap_inc;
 
-        bomb_prob = ninja_context_option->bomb_prob;
+        // bomb_prob = ninja_context_option->bomb_prob;
 
         int num_sections = rand_gen.randn(difficulty) + difficulty;
         num_sections = ninja_context_option->max_num_sections < num_sections ? ninja_context_option->max_num_sections : num_sections; 
