@@ -23,6 +23,8 @@ public:
 
     float car_left_prob;
 
+    float goal_reward;
+
     LeaperContextOption(/* args */);
     ~LeaperContextOption();
     void parse_options(VecOptions *opts);

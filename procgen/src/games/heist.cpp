@@ -82,7 +82,7 @@ class HeistGame : public BasicAbstractGame {
 
         if (obj->type == EXIT) {
             step_data.done = true;
-            step_data.reward = COMPLETION_BONUS;
+            step_data.reward = heist_context_option->completion_bonus;
             step_data.level_complete = true;
         } else if (obj->type == KEY) {
             obj->will_erase = true;
@@ -106,7 +106,7 @@ class HeistGame : public BasicAbstractGame {
             world_dim = 23;
         }
 
-        maxspeed = .75;
+        maxspeed = heist_context_option->maxspeed;
 
         world_dim = heist_context_option->world_dim;
 

@@ -30,6 +30,9 @@ void StarpilotContextOption::parse_options(VecOptions *opts)
     opts->consume_int("fastflyer_prob_weight", &fastflyer_prob_weight, true, 0);
     opts->consume_int("max_time", &max_time, true, INTMAX);
     opts->consume_int("min_time", &min_time, true, 0);
+
+    opts->consume_float("completion_bonus", &completion_bonus, true, 10.0);
+    opts->consume_float("enemy_reward", &enemy_reward, true, 1.0);
 }
 
 void StarpilotContextOption::copy_options(StarpilotContextOption *opts)
@@ -47,6 +50,9 @@ void StarpilotContextOption::copy_options(StarpilotContextOption *opts)
     fastflyer_prob_weight = opts->fastflyer_prob_weight;
     max_time = opts->max_time;
     min_time = opts->min_time;
+
+    completion_bonus = opts->completion_bonus;
+    enemy_reward = opts->enemy_reward;
 }
 
 void StarpilotContextOption::init_episode_context(struct libenv_options *e_context)

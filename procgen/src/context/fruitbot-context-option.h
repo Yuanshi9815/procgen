@@ -19,7 +19,10 @@ class FruitbotContextOption {
     int max_fruits;
     int min_foods;
     int max_foods;
-    
+
+    float completion_bonus;
+    float positive_reward;
+    float penalty;
 
     FruitbotContextOption(/* args */);
     ~FruitbotContextOption();

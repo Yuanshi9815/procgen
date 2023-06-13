@@ -9,6 +9,9 @@ class MinerContextOption {
     float boulder_pct;
     int world_dim;
 
+    float completion_bonus;
+    float diamond_reward;
+
     MinerContextOption(/* args */);
     ~MinerContextOption();
     void parse_options(VecOptions *opts);

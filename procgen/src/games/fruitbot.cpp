@@ -99,17 +99,17 @@ class FruitBotGame : public BasicAbstractGame {
         if (obj->type == BARRIER) {
             step_data.done = true;
         } else if (obj->type == BAD_OBJ) {
-            step_data.reward += PENALTY;
+            step_data.reward += fruitbot_context_option->penalty;
             obj->will_erase = true;
         } else if (obj->type == LOCKED_DOOR) {
             step_data.done = true;
         } else if (obj->type == GOOD_OBJ) {
-            step_data.reward += POSITIVE_REWARD;
+            step_data.reward += fruitbot_context_option->positive_reward;
             obj->will_erase = true;
         } else if (obj->type == PRESENT) {
             if (!step_data.done) {
             }
-            step_data.reward += COMPLETION_BONUS;
+            step_data.reward += fruitbot_context_option->completion_bonus;
             step_data.done = true;
             step_data.level_complete = true;
         }

@@ -20,6 +20,9 @@ public:
     int max_time;
     int min_time;
 
+    float completion_bonus;
+    float enemy_reward;
+
     // int fish_interval;
 
     StarpilotContextOption(/* args */);

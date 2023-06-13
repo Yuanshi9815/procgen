@@ -16,6 +16,9 @@ void MazeContextOption::parse_options(VecOptions *opts)
     opts->consume_int("world_dim", &world_dim, true, 15);
     opts->consume_int("min_maze_dim", &min_maze_dim, true, 3);
     opts->consume_int("max_maze_dim", &max_maze_dim, true, 15);
+
+    opts->consume_float("visibility", &visibility, true, 8.0);
+    opts->consume_float("goal_reward", &goal_reward, true, 10.0);
 }
 
 void MazeContextOption::copy_options(MazeContextOption *opts)
@@ -23,6 +26,9 @@ void MazeContextOption::copy_options(MazeContextOption *opts)
     world_dim = opts->world_dim;
     min_maze_dim = opts->min_maze_dim;
     max_maze_dim = opts->max_maze_dim;
+
+    visibility = opts->visibility;
+    goal_reward = opts->goal_reward;
 }
 
 void MazeContextOption::init_episode_context(struct libenv_options *e_context){

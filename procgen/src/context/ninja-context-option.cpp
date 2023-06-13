@@ -21,6 +21,8 @@ void NinjaContextOption::parse_options(VecOptions *opts) {
     opts->consume_int("max_difficulty", &max_difficulty, true, 3);
     opts->consume_int("min_difficulty", &min_difficulty, true, 1);
     opts->consume_int("max_gap_inc", &max_gap_inc, true, 1);
+
+    opts->consume_float("goal_reward", &goal_reward, true, 10.0);
 }
 
 void NinjaContextOption::copy_options(NinjaContextOption *opts) {
@@ -36,6 +38,8 @@ void NinjaContextOption::copy_options(NinjaContextOption *opts) {
     max_difficulty = opts->max_difficulty;
     min_difficulty = opts->min_difficulty;
     max_gap_inc = opts->max_gap_inc;
+
+    goal_reward = opts->goal_reward;
 }
 
 void NinjaContextOption::init_episode_context(struct libenv_options *e_context)

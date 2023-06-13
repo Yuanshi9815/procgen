@@ -128,7 +128,7 @@ class StarPilotGame : public BasicAbstractGame {
 
         if (obj->type == FINISH_LINE) {
             step_data.done = true;
-            step_data.reward += COMPLETION_BONUS;
+            step_data.reward += starpilot_context_option->completion_bonus;
             step_data.level_complete = true;
         } else if (is_lethal(obj)) {
             step_data.done = true;
@@ -411,7 +411,7 @@ class StarPilotGame : public BasicAbstractGame {
             if (m->health <= 0 && is_destructible(m->type) && !m->will_erase) {
                 spawn_child(m, EXPLOSION, .5 * m->rx, true);
 
-                step_data.reward += ENEMY_REWARD;
+                step_data.reward += starpilot_context_option->enemy_reward;
                 m->will_erase = true;
             }
         }

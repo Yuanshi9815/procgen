@@ -33,6 +33,7 @@ void DodgeballContextOption::parse_options(VecOptions *opts)
     opts->consume_int("max_extra_enemies", &max_extra_enemies, true, 3); // The maximum number of extra enemies
     opts->consume_int("base_num_enemies", &base_num_enemies, true, 3); // The number of base enemies. The sum of base_num_enemies and max_extra_enemies is the number of all enemies
 
+    opts->consume_float("completion_bonus", &completion_bonus, true, 10.0); // The bonus of completing the task
 }
 
 
@@ -57,6 +58,7 @@ void DodgeballContextOption::copy_options(DodgeballContextOption *opts)
 
     max_extra_enemies = opts->max_extra_enemies;
     base_num_enemies = opts->base_num_enemies;
+    completion_bonus = opts->completion_bonus;
 }
 
 void DodgeballContextOption::init_episode_context(struct libenv_options *e_context)

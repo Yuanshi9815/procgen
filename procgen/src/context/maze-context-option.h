@@ -10,6 +10,9 @@ public:
     int min_maze_dim;
     int max_maze_dim;
 
+    float visibility;
+    float goal_reward;
+
     MazeContextOption(/* args */);
     ~MazeContextOption();
     void parse_options(VecOptions *opts);

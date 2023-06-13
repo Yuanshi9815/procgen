@@ -20,6 +20,7 @@ void LeaperContextOption::parse_options(VecOptions *opts) {
     opts->consume_int("max_log", &max_log, true, 3);
     opts->consume_int("min_log", &min_log, true, 0);
     opts->consume_float("car_left_prob", &car_left_prob, true, .5f);
+    opts->consume_float("goal_reward", &goal_reward, true, 10.0);
 }
 
 void LeaperContextOption::init_episode_context(struct libenv_options *e_context) {
@@ -51,4 +52,5 @@ void LeaperContextOption::copy_options(LeaperContextOption *opts) {
     max_log = opts->max_log;
     min_log = opts->min_log;
     car_left_prob = opts->car_left_prob;
+    goal_reward = opts->goal_reward;
 }

@@ -12,6 +12,9 @@ public:
     int min_maze_dim;
     int min_keys;
     int max_keys;
+    float maxspeed;
+
+    float completion_bonus;
 
     HeistContextOption(/* args */);
     ~HeistContextOption();

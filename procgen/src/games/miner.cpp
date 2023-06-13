@@ -75,7 +75,7 @@ class MinerGame : public BasicAbstractGame {
             step_data.done = true;
         } else if (obj->type == EXIT) {
             if (diamonds_remaining == 0) {
-                step_data.reward += COMPLETION_BONUS;
+                step_data.reward += miner_context_option-> completion_bonus;
                 step_data.level_complete = true;
                 step_data.done = true;
             }
@@ -265,7 +265,7 @@ class MinerGame : public BasicAbstractGame {
         int agent_obj = get_obj(int(agent->x), int(agent->y));
 
         if (agent_obj == DIAMOND) {
-            step_data.reward += DIAMOND_REWARD;
+            step_data.reward += miner_context_option-> diamond_reward;
         }
 
         if (agent_obj == DIRT || agent_obj == DIAMOND) {

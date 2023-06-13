@@ -24,6 +24,9 @@ void PlunderContextOption::parse_options(VecOptions *opts)
     opts->consume_float("enemy_prob", &enemy_prob, true, 0.5);
     opts->consume_float("max_speed", &max_speed, true, 0.15);
     opts->consume_float("min_speed", &min_speed, true, 0.25);
+
+    opts->consume_float("completion_bonus", &completion_bonus, true, 10.0);
+    opts->consume_float("positive_reward", &positive_reward, true, 1.0);
 }
 
 void PlunderContextOption::copy_options(PlunderContextOption *opts)
@@ -40,4 +43,7 @@ void PlunderContextOption::copy_options(PlunderContextOption *opts)
     enemy_prob = opts->enemy_prob;
     max_speed = opts->max_speed;
     min_speed = opts->min_speed;
+
+    completion_bonus = opts->completion_bonus;
+    positve_reward = opts->positive_reward;
 }

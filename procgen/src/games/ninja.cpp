@@ -80,7 +80,7 @@ class Ninja : public BasicAbstractGame {
         if (obj->type == EXPLOSION) {
             step_data.done = true;
         } else if (obj->type == GOAL) {
-            step_data.reward += GOAL_REWARD;
+            step_data.reward += ninja_context_option->goal_reward;
             step_data.level_complete = true;
             step_data.done = true;
         }

@@ -19,6 +19,8 @@ public:
     int min_difficulty;
     int max_gap_inc;
 
+    float goal_reward;
+
     NinjaContextOption(/* args */);
     ~NinjaContextOption();
     void parse_options(VecOptions *opts);

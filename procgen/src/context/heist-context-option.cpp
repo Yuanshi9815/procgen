@@ -19,6 +19,9 @@ void HeistContextOption::parse_options(VecOptions *opts)
     opts->consume_int("min_maze_dim", &min_maze_dim, true, 5); // 5 is the min maze dim in the original game [5, world_dim].
     opts->consume_int("min_keys", &min_keys, true, 0);
     opts->consume_int("max_keys", &max_keys, true, 3);  // 3 is the max number of keys in the original game. [0, 3]
+    opts->consume_float("maxspeed", &maxspeed, true, 0.75);
+
+    opts->consume_float("completion_bonus", &completion_bonus, true, 10.0);
 }
 
 void HeistContextOption::copy_options(HeistContextOption *opts)
@@ -29,6 +32,9 @@ void HeistContextOption::copy_options(HeistContextOption *opts)
     min_maze_dim = opts->min_maze_dim;
     min_keys = opts->min_keys;
     max_keys = opts->max_keys;
+    maxspeed = opts->maxspeed;
+
+    completion_bonus = opts->completion_bonus;
 }
 
 void HeistContextOption::init_episode_context(struct libenv_options *e_context)

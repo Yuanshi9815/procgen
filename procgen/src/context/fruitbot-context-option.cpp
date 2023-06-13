@@ -22,6 +22,10 @@ void FruitbotContextOption::parse_options(VecOptions *opts) {
     opts->consume_int("max_fruits", &max_fruits, true, 19);
     opts->consume_int("min_foods", &min_foods, true, 10);
     opts->consume_int("max_foods", &max_foods, true, 19);
+
+    opts->consume_float("completion_bonus", &completion_bonus, true, 1.0);
+    opts->consume_float("positive_reward", &positive_reward, true, 1.);
+    opts->consume_float("penalty", &penalty, true, -4.);
 }
 
 void FruitbotContextOption::copy_options(FruitbotContextOption *opts) {
@@ -38,6 +42,10 @@ void FruitbotContextOption::copy_options(FruitbotContextOption *opts) {
     max_fruits = opts->max_fruits;
     min_foods = opts->min_foods;
     max_foods = opts->max_foods;
+
+    completion_bonus = opts->completion_bonus;
+    positive_reward = opts->positive_reward;
+    penalty = opts->penalty;
 }
 
 void FruitbotContextOption::init_episode_context(struct libenv_options *e_context)

@@ -81,7 +81,7 @@ class LeaperGame : public BasicAbstractGame {
         if (obj->type == CAR) {
             step_data.done = true;
         } else if (obj->type == FINISH_LINE && agent->vx == 0 && agent->vy == 0) {
-            step_data.reward += GOAL_REWARD;
+            step_data.reward += leaper_context_option->goal_reward;
             step_data.done = true;
             step_data.level_complete = true;
         }

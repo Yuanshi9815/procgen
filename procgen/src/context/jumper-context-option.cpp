@@ -13,6 +13,8 @@ void JumperContextOption::parse_options(VecOptions *opts) {
     opts->consume_int("compass_dim", &compass_dim, true, 3);
     opts->consume_int("jump_cooldown", &jump_cooldown, true, 3);
     opts->consume_int("max_jump_count", &max_jump_count, true, 2);
+
+    opts->consume_float("goal_reward", &goal_reward, true, 10.0);
 }
 
 void JumperContextOption::copy_options(JumperContextOption *opts) {
@@ -21,4 +23,6 @@ void JumperContextOption::copy_options(JumperContextOption *opts) {
     compass_dim = opts->compass_dim;
     jump_cooldown = opts->jump_cooldown;
     max_jump_count = opts->max_jump_count;
+
+    goal_reward = opts->goal_reward;
 }

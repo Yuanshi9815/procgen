@@ -109,7 +109,7 @@ class DodgeballGame : public BasicAbstractGame {
         } else if (obj->type == DOOR) {
             if (num_enemies == 0) {
                 step_data.done = true;
-                step_data.reward += COMPLETION_BONUS;
+                step_data.reward += dodgeball_context_option->completion_bonus;
                 step_data.level_complete = true;
             }
         } else if (obj->type == LAVA_WALL) {

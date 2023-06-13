@@ -92,7 +92,7 @@ class PlunderGame : public BasicAbstractGame {
 
                 if (is_target(target->image_theme)) {
                     targets_hit += 1;
-                    step_data.reward += POSITIVE_REWARD;
+                    step_data.reward += plunder_context_option->positive_reward;
                     juice_left += plunder_context_option->target_time_reward;
                 } else {
                     juice_left -= plunder_context_option->target_time_penalty;
@@ -236,7 +236,7 @@ class PlunderGame : public BasicAbstractGame {
 
         if (targets_hit >= target_quota) {
             step_data.done = true;
-            step_data.reward += COMPLETION_BONUS;
+            step_data.reward += plunder_context_option->completion_bonus;
             step_data.level_complete = true;
         }
 

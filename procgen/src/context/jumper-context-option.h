@@ -12,6 +12,8 @@ public:
     int jump_cooldown;
     int max_jump_count;
 
+    float goal_reward;
+
     JumperContextOption(/* args */);
     ~JumperContextOption();
     void parse_options(VecOptions *opts);

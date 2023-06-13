@@ -20,7 +20,7 @@ class MazeGame : public BasicAbstractGame {
         has_useful_vel_info = false;
 
         out_of_bounds_object = WALL_OBJ;
-        visibility = 8.0;
+        visibility = maze_context_option->visibility;
     }
 
     void load_background_images() override {
@@ -125,7 +125,7 @@ class MazeGame : public BasicAbstractGame {
 
         if (get_obj(ix, iy) == GOAL) {
             set_obj(ix, iy, SPACE);
-            step_data.reward += REWARD;
+            step_data.reward += maze_context_option->goal_reward;
             step_data.level_complete = true;
         }
 

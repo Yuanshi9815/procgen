@@ -19,6 +19,8 @@ public:
     float max_speed;
     float min_speed;
 
+    float completion_bonus;
+    float positive_reward;
 
     PlunderContextOption(/* args */);
     ~PlunderContextOption();

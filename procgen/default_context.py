@@ -114,7 +114,8 @@ default_context_options = {
         "allow_right_exit": True,
         "allow_top_exit": True,
         "allow_bottom_exit": True,
-        # Total: 16
+        "completion_bonus": 10.,
+        # Total: 17
     },
     "fruitbot": {
         "main_width":10,
@@ -129,7 +130,10 @@ default_context_options = {
         "max_fruits": 19,
         "min_foods": 10,
         "max_foods": 19,
-        # Total: 12
+        "completion_bonus": 10.,
+        "positive_reward": 1.,
+        "penalty": -4.,
+        # Total: 15
     },
     "heist": {
         "world_dim": 9,
@@ -137,7 +141,9 @@ default_context_options = {
         "min_maze_dim": 5,
         "min_keys": 0,
         "max_keys": 3,
-        # Total: 5
+        "maxspeed": 0.75,
+        "completion_bonus": 10.,
+        # Total: 7
     },
     "jumper": {
         "world_dim": 20,
@@ -145,7 +151,8 @@ default_context_options = {
         "compass_dim": 3,
         "jump_cooldown": 3,
         "max_jump_count": 2,
-        # Total: 5
+        "goal_reward": 10.,
+        # Total: 6
     },
     "leaper": {
         "world_dim": 9,
@@ -159,19 +166,24 @@ default_context_options = {
         "max_log": 3,
         "min_log": 0,
         "car_left_prob": .5,
-        # Total: 11
+        "goal_reward": 10.,
+        # Total: 12
     },
     "maze": {
         "world_dim": 15,
         "min_maze_dim": 3,
         "max_maze_dim": 15,
-        # Total: 3
+        "visibility": 8.,
+        "goal_reward": 10., 
+        # Total: 5
     },
     "miner": {
         "world_dim": 15,
         "diamond_pct": .03,
         "boulder_pct": .2,
-        # Total: 3
+        "completion_bonus": 10.,
+        "diamond_reward": 1.,
+        # Total: 5
     },
     "ninja": {
         "gravity": .2,
@@ -186,7 +198,8 @@ default_context_options = {
         "min_difficulty": 1,
         "max_difficulty": 3,
         "max_gap_inc": 1,
-        # Total: 12
+        "goal_reward": 10.,
+        # Total: 13
     },
     "plunder": {
         "target_time_reward": 0.1,
@@ -201,7 +214,9 @@ default_context_options = {
         "enemy_prob": .5,
         "max_speed": .25,
         "min_speed": .15,
-        # Total: 12
+        "completion_bonus": 10.,
+        "positive_reward": 1.,
+        # Total: 14
     },
     "starpilot": {
         "maxspeed": .75,
@@ -218,6 +233,8 @@ default_context_options = {
         "min_flyer_speed": .1,
         "min_time": 0,
         "max_time": 10000,
-        # Total: 14
+        "completion_bonus": 10.,
+        "enemy_reward": 1.,
+        # Total: 16
     }
 }
