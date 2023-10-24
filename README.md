@@ -19,18 +19,20 @@ conda env update --file environment.yml
 2. Once the dependencies are installed, proceed to install C-Procgen:
 ```
 pip install -e .
-# this should say "building procgen...done"
+# this should say "Building C-Procgen...done"
 ```
+
+如果你遇到了Qt5的error：xxxx
 
 The environment code is in C++ and is compiled into a shared library exposing the [`gym3.libenv`](https://github.com/openai/gym3/blob/master/gym3/libenv.h) C interface that is then loaded by python.  The C++ code uses [Qt](https://www.qt.io/) for drawing.
 
 ## Quick Start
 To quickly get started with C-Procgen, follow the example below:
 
-1. **Creating games with specific contexts.** We recommend using `ProcgenEnv` to create game environments with specific contexts. Here is an example:
-```
+1. **Creating games with specific contexts.** We recommend using `CProcgenEnv` to create game environments with specific contexts. Here is an example:
+```[python]
 # Import the C-Procgen environment
-from procgen import ProcgenEnv
+from cprocgen import CProcgenEnv
 
 # Define the context parameters for different contexts
 context_1 = {
@@ -42,8 +44,8 @@ context_2 = {
     "visibility": 6,
 }
 
-# Create a Procgen environment with 2 specific contexts
-env = ProcgenEnv(num_envs=2, env_name='ninja', context_options=[context_1, context_2])
+# Create a C-Procgen environment with 2 specific contexts
+env = CProcgenEnv(num_envs=2, env_name='ninja', context_options=[context_1, context_2])
 ```
 2. **Tracking variational contexts in games.** For games where the context varies within a specified range and is randomly generated for each episode, you can use the `get_context()` method to track the context for each episode.
 
@@ -83,7 +85,7 @@ In C-Procgen, some of the original Procgen parameters, such as `Level seed`,  ar
 ## Context Parameters
 In C-Procgen, the games generated using the default context have the same game logic and difficulty as the games generated under the `easy` setting in the original Procgen. The following code demonstrates how to view and use the default context:
 ```
-from procgen.default_context import default_context_options
+from cprocgen.default_context import default_context_options
 
 default_context = default_context_options['ninja']
 
