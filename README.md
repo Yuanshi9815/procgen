@@ -18,7 +18,7 @@ conda env update --file environment.yml
 ```
 2. Once the dependencies are installed, proceed to install C-Procgen:
 ```
-pip install -e .
+pip install -e ./cprocgen
 # this should say "Building C-Procgen...done"
 ```
 
